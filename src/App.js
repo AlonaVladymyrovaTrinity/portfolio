@@ -1,17 +1,20 @@
 import React from 'react';
+import About from './routes/About';
+import Home from './routes/Home';
+import Project from './routes/Project';
+import Contact from './routes/Contact';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project" element={<Project />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
   );
 }
 
