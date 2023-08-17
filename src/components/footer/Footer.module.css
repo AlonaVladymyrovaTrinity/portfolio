@@ -32,14 +32,15 @@
   font-weight: bold;
   padding-bottom: 0.7rem;
   margin-bottom: 2rem;
+  color: #ffffff;
 }
 .bold-text a {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
 }
 .bold-text a:hover,
 a:focus {
-  color: #181818;
+  color: #cccccc;
   text-decoration: none;
 }
 .bold-text a:visited,
@@ -47,17 +48,7 @@ a:active {
   color: #8a8a8a;
   text-decoration: none;
 }
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+
 .content-column {
   height: 100%;
   max-width: 100%;
