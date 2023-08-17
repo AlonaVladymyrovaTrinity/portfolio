@@ -1,4 +1,4 @@
-import style from '../navbar/Navbar.module.css';
+import style from './Navbar.module.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -6,7 +6,6 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import myResume from '../../assets/Resume_Alona_Vladymyrova 07_19_23.pdf';
 
 const Navbar = () => {
-  //useState for changing icons hamberger state
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -53,10 +52,7 @@ const Navbar = () => {
           </a>
         </li>
       </ul>
-      {/* Add icons bambuger bar */}
-      {/* hide the icons until we change the screen  */}
       <div className={style['hamburger']} onClick={handleClick}>
-        {/* added statement to avoid diplay both icons in the same time suit case */}
         {click ? (
           <FaTimes size={20} className={style['icon']} />
         ) : (

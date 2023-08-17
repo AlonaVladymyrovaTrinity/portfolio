@@ -1,4 +1,4 @@
-import style from '../footer/Footer.module.css';
+import style from './Footer.module.css';
 
 import React from 'react';
 import {
@@ -56,7 +56,7 @@ const Footer = () => {
               aria-label="GitHub Profile"
             >
               <FaGithub size={40} className={style['icon']} />
-              <span className={style['sr-only']}>GitHub</span>
+              <span className="sr-only">GitHub</span>
             </a>
             <a
               href="https://www.linkedin.com/in/alona-vladymyrova"
@@ -65,7 +65,7 @@ const Footer = () => {
               aria-label="LinkedIn Profile"
             >
               <FaLinkedin size={40} className={style['icon']} />
-              <span className={style['sr-only']}>LinkedIn</span>
+              <span className="sr-only">LinkedIn</span>
             </a>
             <a
               href="https://www.codewars.com/users/AlonaVladymyrova"
@@ -77,7 +77,7 @@ const Footer = () => {
                 icon="simple-icons:codewars"
                 className={style['icon-codewars']}
               />
-              <span className={style['sr-only']}>Codewars</span>
+              <span className="sr-only">Codewars</span>
             </a>
           </div>
         </div>
