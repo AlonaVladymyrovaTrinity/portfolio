@@ -1,6 +1,6 @@
 import AdoptTheDream from '../../assets/AdoptTheDream.png';
 import TodoApp from '../../assets/TodoApp.png';
-import BeatBazaar from '../../assets/TodoApp.png';
+import BeatBazaar from '../../assets/BeatBazaar.png';
 import StarWars from '../../assets/StarWars.png';
 
 const ProjectsList = [
