@@ -10,7 +10,6 @@ import React from 'react';
 const Projects = () => {
   return (
     <div className={style['pro-container']}>
-      <h1 className={style['project-heading']}>Projects</h1>
       <div className={style['project-container']}>
         {ProjectsList.map((val, ind) => {
           return (

@@ -2,8 +2,8 @@
   width: 100%;
   height: 60vh;
   position: relative;
-  background-color: #000000;
-  opacity: 0.5;
+  background-color: #000250;
+  opacity: 0.9;
 }
 
 .banner_content {
@@ -27,7 +27,12 @@
   justify-content: center;
   align-items: center;
 }
-
+.text-box {
+  background-color: rgba(0, 0, 0, 0.695);
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.695);
+}
 .banner_content .heading h1 {
   font-size: 2.4rem;
 }

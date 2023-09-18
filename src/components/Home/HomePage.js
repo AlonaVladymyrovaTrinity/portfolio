@@ -1,6 +1,6 @@
 import style from './HomePage.module.css';
 import React from 'react';
-import bgImage from '../../assets/IMG_5107.jpg';
+import bgImage from '../../assets/girl-coding.jpg';
 import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton';
 
 const HomePage = () => {
