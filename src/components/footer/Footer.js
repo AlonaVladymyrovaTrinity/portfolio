@@ -27,16 +27,16 @@ const Footer = () => {
           <div className={style['phone']}>
             <div className={style['bold-text']}>
               <FaPhone size={20} className={style['fa-icon']} />
-              <a href="tel:+1925999XXXX">
-                <strong>Phone:</strong> +1 (925) 999 - XXXX
+              <a href="tel:+19259995013">
+                <strong>Phone:</strong> +1 (925) 999-5013
               </a>
             </div>
           </div>
           <div className={style['email']}>
             <div className={style['bold-text']}>
               <FaMailBulk size={20} className={style['fa-icon']} />
-              <a href="mailto:alona.XXX@gmail.com">
-                <strong>Email:</strong> alona.XXX@gmail.com
+              <a href="mailto:alona.vladymyrova@gmail.com">
+                <strong>Email:</strong> alona.vladymyrova@gmail.com
               </a>
             </div>
           </div>

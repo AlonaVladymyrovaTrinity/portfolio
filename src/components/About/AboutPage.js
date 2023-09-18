@@ -1,7 +1,6 @@
 import style from './AboutPage.module.css';
 import React from 'react';
 import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton';
-import GoldenGateBridge from '../../assets/GoldenGateBridge.png';
 import HTML5Icon from '../../assets/HTML5_icon.png';
 import CSSIcon from '../../assets/CSS_icon.png';
 import BootstrapIcon from '../../assets/bootstrap_icon.png';
@@ -13,17 +12,6 @@ import SqlIcon from '../../assets/sql_icon.png';
 const AboutPage = () => {
   return (
     <>
-      <img
-        src={GoldenGateBridge}
-        className={style['banner-img']}
-        alt="Golden Gate Bridge"
-      />
-      <div className={style['about_banner_content']}>
-        <div className={style['heading']}>
-          <h1>ABOUT ME</h1>
-          <p>I'm a Font-End Developper</p>
-        </div>
-      </div>
       <div className={style['about-container']}>
         <div className={style['left-content']}>
           <h2>I'm Alona</h2>
