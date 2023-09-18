@@ -7,7 +7,7 @@ const ProjectsList = [
   {
     imgsrc: AdoptTheDream,
     title: 'Adopt The Dream',
-    text: 'Team project "Adopt the Dream App" is a web application that connects pet enthusiasts with lovable animals in search of forever homes. This user-friendly application offers features such as registration, user profiles, pet browsing, favorites, advanced search, and adoption processing. Techniques used: Techniques used: React, React Router, Redux, Axios, React Auth Context, HTML5, CSS3, React bootstrap, JavaScript, Petfinder.com API, Stripe, Node.js, Express, JWT, MongoDB, socket.io, bcrypt, Swagger UI, Nodemailer, Jest',
+    text: 'Team project "Adopt the Dream App" is a web application that connects pet enthusiasts with lovable animals in search of forever homes. This user-friendly application offers features such as registration, user profiles, pet browsing, favorites, advanced search, and adoption processing. Techniques used: Techniques used: React, React Router, Redux, Axios, React Auth Context, HTML5, CSS3, React bootstrap, JavaScript, Petfinder.com API, Stripe, Node.js, Express, JWT, MongoDB, Swagger UI, Nodemailer, Jest',
     view: 'https://adoptthedream.alona.dev',
     source: 'https://github.com/AlonaVladymyrovaTrinity/AdoptTheDreamApp-Front',
   },
