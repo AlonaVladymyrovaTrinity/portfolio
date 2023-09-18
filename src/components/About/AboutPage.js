@@ -4,8 +4,10 @@ import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton'
 import HTML5Icon from '../../assets/HTML5_icon.png';
 import CSSIcon from '../../assets/CSS_icon.png';
 import BootstrapIcon from '../../assets/bootstrap_icon.png';
+import MaterialUiIcon from '../../assets/material-ui-logo.png';
 import JavaScriptIcon from '../../assets/javascript-icon.png';
 import ReactIcon from '../../assets/react_icon.png';
+import ReduxIcon from '../../assets/redux_icon.png';
 import GithubIcon from '../../assets/github_icon.png';
 import SqlIcon from '../../assets/sql_icon.png';
 
@@ -34,48 +36,123 @@ const AboutPage = () => {
           />
         </div>
         <div className={style['right-content']}>
-          <aside>
+          {/* <aside> */}
+          <div className={style['right-content-heading']}>
             <h2>My Key Skills</h2>
-            <div className={style['img-container']}>
-              <div>
-                <img src={HTML5Icon} className={style['img']} alt="HTML5" />
-                <p>HTML5</p>
-              </div>
-              <div>
-                <img src={CSSIcon} className={style['img']} alt="CSS" />
-                <p>CSS</p>
-              </div>
-              <div>
-                <img
-                  src={BootstrapIcon}
-                  className={style['img']}
-                  alt="Bootstrap"
-                />
-                <p>Bootstrap</p>
-              </div>
-              <div>
-                <img
-                  src={JavaScriptIcon}
-                  className={style['img']}
-                  alt="JavaScript"
-                />
+          </div>
+          <div className={style['container']}>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={JavaScriptIcon}
+                    className={style['skill-icon']}
+                    alt="JavaScript"
+                  />{' '}
+                </div>
                 <p>JavaScript</p>
               </div>
-              <div>
-                <img src={ReactIcon} className={style['img']} alt="React" />
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={ReactIcon}
+                    className={style['skill-icon']}
+                    alt="React"
+                  />
+                </div>
                 <p>React</p>
               </div>
-              <div>
-                <img src={GithubIcon} className={style['img']} alt="Github" />
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={ReduxIcon}
+                    className={style['skill-icon']}
+                    alt="Redux"
+                  />
+                </div>
+                <p>Redux</p>
+              </div>
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={HTML5Icon}
+                    className={style['skill-icon']}
+                    alt="HTML5"
+                  />
+                </div>
+                <p>HTML5</p>
+              </div>
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={CSSIcon}
+                    className={style['skill-icon']}
+                    alt="CSS"
+                  />
+                </div>
+                <p>CSS</p>
+              </div>
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={BootstrapIcon}
+                    className={style['skill-icon']}
+                    alt="Bootstrap"
+                  />{' '}
+                </div>
+                <p>Bootstrap</p>
+              </div>
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={MaterialUiIcon}
+                    className={style['skill-icon']}
+                    alt="Material-ui"
+                  />{' '}
+                </div>
+                <p>Material-ui</p>
+              </div>
+            </div>
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={GithubIcon}
+                    className={style['skill-icon']}
+                    alt="Github"
+                  />
+                </div>
                 <p>Github</p>
               </div>
-              <div>
-                <img src={SqlIcon} className={style['img']} alt="Sql" />
+            </div>
+
+            <div className={style['skill-box-container']}>
+              <div className={style['skill-title']}>
+                <div className={style['img']}>
+                  <img
+                    src={SqlIcon}
+                    className={style['skill-icon']}
+                    alt="Sql"
+                  />
+                </div>
                 <p>SQL</p>
               </div>
             </div>
-          </aside>
+          </div>
         </div>
+        {/* </aside> */}
       </div>
     </>
   );
