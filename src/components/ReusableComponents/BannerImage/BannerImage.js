@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './BannerImage.module.css';
-import GoldenGateBridge from '../../../assets/GoldenGateBridge.png';
+import GoldenGateBridge from '../../../assets/behind_the_algorithm.jpg';
 
 function BannerImmage({ heading, text }) {
   return (
@@ -12,8 +12,10 @@ function BannerImmage({ heading, text }) {
       />
       <div className={style['banner_content']}>
         <div className={style['heading']}>
-          <h1>{heading}</h1>
-          <p>{text}</p>
+          <div className={style['text-box']}>
+            <h1>{heading}</h1>
+            <p>{text}</p>
+          </div>
         </div>
       </div>
     </>
