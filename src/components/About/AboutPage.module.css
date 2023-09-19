@@ -22,13 +22,13 @@
 .about-container .left-content article {
   margin: 2rem 0;
 }
-.left-content button {
+/* .left-content button {
   background-color: #975eb0;
   border-radius: 5px;
 }
 .left-content button:hover {
   background-color: #881db6;
-}
+} */
 
 .about-container .right-content {
   display: flex;

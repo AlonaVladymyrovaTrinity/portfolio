@@ -35,7 +35,9 @@ inclusive for all users. That's why the name of the class is
   padding: 0.75rem 2rem;
   text-transform: uppercase;
   color: #ffffff;
-  background: #520b76;
+  /* background: #520b76; */
+  background-color: #975eb0;
+  border-radius: 5px;
   border: 1px solid #ffffff;
 }
 
