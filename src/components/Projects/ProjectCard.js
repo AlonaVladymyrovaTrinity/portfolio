@@ -1,7 +1,8 @@
 import style from './ProjectCard.module.css';
+// import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton';
 
 import React from 'react';
-// import { NavLink } from "react-router-dom";
+// import { NavLink } from 'react-router-dom';
 
 const ProjectCard = (props) => {
   return (
@@ -22,6 +23,16 @@ const ProjectCard = (props) => {
           >
             Github Source
           </a>
+          {/* <NavigateButton
+            linkName={`/${props.view}`}
+            children={'View Project'}
+            className="btn"
+          />
+          <NavigateButton
+            linkName={`/${props.source}`}
+            children={'Github Source'}
+            className="btn"
+          /> */}
           {/* <NavLink to={props.view} className="btn">
             Page
           </NavLink>
