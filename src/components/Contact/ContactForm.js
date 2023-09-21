@@ -49,7 +49,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <div className={style['main-block']}>
       {submissionStatus === 'success' &&
         showAlert('Message sent successfully!')}
       {submissionStatus === 'error' &&

@@ -1,66 +1,59 @@
-import style from './Navbar.module.css';
-import React, { useState } from 'react';
+import React /*, { useState }*/ from 'react';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
 
 import myResume from '../../assets/Resume_Alona_Vladymyrova 07_19_23.pdf';
 
 const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  // const [open, setOpen] = useState(false);
 
-  const [color, setColor] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 100) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
+  // const toggleMenu = () => {
+  //   setOpen(!open);
+  // };
 
-  window.addEventListener('scroll', changeColor);
+  // const [color, setColor] = useState(false);
+
+  // const changeColor = () => {
+  //   if (window.scrollY >= 100) {
+  //     setColor(true);
+  //   } else {
+  //     setColor(false);
+  //   }
+  // };
+
+  // window.addEventListener('scroll', changeColor);
 
   return (
-    <div
-      className={
-        color ? `${style['header']} ${style['header-bg']}` : style['header']
-      }
+    // <AppBar position="static" style={{ marginBottom: '2rem' }}>
+    <AppBar
+      position="fixed" /*className={color ? 'header header-bg' : 'header'}*/
     >
-      <Link to="/">
-        <h1>Alona Vladymyrova</h1>
-      </Link>
-      <ul
-        className={
-          click ? `${style['nav-menu']} ${style['active']}` : style['nav-menu']
-        }
-      >
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/project">Project</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li>
-          <a target="_blanc" href={myResume} download>
-            Resume
-          </a>
-        </li>
-      </ul>
-      <div className={style['hamburger']} onClick={handleClick}>
-        {click ? (
-          <FaTimes size={20} className={style['icon']} />
-        ) : (
-          <FaBars size={20} className={style['icon']} />
-        )}
-      </div>
-    </div>
+      <Toolbar>
+        {/* <Link to="/"> */}
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Alona Vladymyrova
+        </Typography>
+        {/* </Link> */}
+        <Button color="inherit" component={Link} to="/">
+          Home
+        </Button>
+        <Button color="inherit" component={Link} to="/project">
+          Projects
+        </Button>
+        <Button color="inherit" component={Link} to="/about">
+          About
+        </Button>
+        <Button color="inherit" component={Link} to="/contact">
+          Contact
+        </Button>
+        {/* <a target="_blank" rel="noreferrer" href={myResume} download>
+          Resume
+        </a> */}
+        <Link target="_blank" rel="noreferrer" to={myResume} download>
+          <Typography>RESUME</Typography>
+        </Link>
+      </Toolbar>
+    </AppBar>
   );
 };
-
 export default Navbar;

@@ -5,9 +5,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
 }
 body {
-  background: #000000;
+  background: #ffffff;
 }
 
 /*The CSS class "sr-only" is used to hide element visually from
