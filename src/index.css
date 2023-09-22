@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /*'Outfit', sans-serif;*/
   font-size: 1.2rem;
 }
 body {

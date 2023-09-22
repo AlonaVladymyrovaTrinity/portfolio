@@ -16,7 +16,7 @@ const HomePage = () => {
         </div>
         <div className={style['content']}>
           <p>
-            Hello, I am <strong> Alona Vladymyrova</strong>{' '}
+            Hello, I am <b> Alona Vladymyrova</b>{' '}
           </p>
           <h1>Front-end</h1>
           <h2>developer</h2>
