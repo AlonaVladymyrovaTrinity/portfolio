@@ -64,8 +64,7 @@ inclusive for all users. That's why the name of the class is
 h1,
 h2,
 h4,
-p,
-a {
+p {
   color: #ffffff;
   text-decoration: none;
 }
