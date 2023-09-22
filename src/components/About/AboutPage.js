@@ -16,7 +16,7 @@ const AboutPage = () => {
     <>
       <div className={style['about-container']}>
         <div className={style['left-content']}>
-          <h2>I'm Alona</h2>
+          <h2>Getting to Know Me Better</h2>
           <main>
             <article>
               I'm a Frontend Developer with a Master's in Computer Science,

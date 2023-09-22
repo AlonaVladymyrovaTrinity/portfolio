@@ -1,65 +1,100 @@
-import style from './Navbar.module.css';
 import React, { useState } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Tabs,
+  Tab,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
-
-import myResume from '../../assets/Resume_Alona_Vladymyrova 07_19_23.pdf';
+import NavbarDrawer from './NavbarDrawer';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 
 const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+  const [value, setValue] = useState(false);
 
-  const [color, setColor] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 100) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
+  // const [open, setOpen] = useState(false);
 
-  window.addEventListener('scroll', changeColor);
+  // const toggleMenu = () => {
+  //   setOpen(!open);
+  // };
 
+  // const [color, setColor] = useState(false);
+
+  // const changeColor = () => {
+  //   if (window.scrollY >= 100) {
+  //     setColor(true);
+  //   } else {
+  //     setColor(false);
+  //   }
+  // };
+
+  // window.addEventListener('scroll', changeColor);
   return (
-    <div
-      className={
-        color ? `${style['header']} ${style['header-bg']}` : style['header']
-      }
-    >
-      <Link to="/">
-        <h1>Alona Vladymyrova</h1>
-      </Link>
-      <ul
-        className={
-          click ? `${style['nav-menu']} ${style['active']}` : style['nav-menu']
-        }
-      >
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/project">Project</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li>
-          <a target="_blanc" href={myResume} download>
-            Resume
-          </a>
-        </li>
-      </ul>
-      <div className={style['hamburger']} onClick={handleClick}>
-        {click ? (
-          <FaTimes size={20} className={style['icon']} />
-        ) : (
-          <FaBars size={20} className={style['icon']} />
-        )}
-      </div>
-    </div>
+    <>
+      <AppBar position="fixed">
+        {/* className={color ? 'header header-bg' : 'header'} */}
+        <Toolbar>
+          <Typography
+            variant="h8"
+            component="div"
+            sx={{ flexGrow: 1 }}
+            style={{ textTransform: 'uppercase' }}
+          >
+            Alona Vladymyrova
+          </Typography>
+          {isMatch ? (
+            <>
+              <Typography>Menu</Typography>
+              <NavbarDrawer />
+            </>
+          ) : (
+            <Tabs
+              textColor="inherit"
+              value={value}
+              onChange={handleChange}
+              indicatorColor="secondary"
+            >
+              <Tab label="Home" component={Link} to="/" />
+              <Tab label="Projects" component={Link} to="/project" />
+              <Tab label="About" component={Link} to="/about" />
+              <Tab label="Contact" component={Link} to="/contact" />
+              <Tab
+                label={
+                  <>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        fontSize: '0.875rem',
+                        fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+                      }}
+                    >
+                      <DownloadForOfflineIcon
+                        style={{ fontSize: 'inherit', marginRight: '2px' }}
+                      />
+                      Resume
+                    </div>
+                  </>
+                }
+                component="a"
+                href={myResume}
+                download
+              />
+            </Tabs>
+          )}
+        </Toolbar>
+      </AppBar>
+    </>
   );
 };
 

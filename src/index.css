@@ -5,9 +5,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
 }
 body {
-  background: #000000;
+  background: #ffffff;
 }
 
 /*The CSS class "sr-only" is used to hide element visually from
@@ -63,8 +64,7 @@ inclusive for all users. That's why the name of the class is
 h1,
 h2,
 h4,
-p,
-a {
+p {
   color: #ffffff;
   text-decoration: none;
 }

@@ -7,7 +7,7 @@
 }
 
 .form label {
-  color: #fff;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
@@ -16,9 +16,10 @@
   margin-bottom: 1rem;
   padding: 0.625rem 1.125rem;
   font-size: 1.2rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #f4f4f4;
+  background-color: rgba(147, 112, 160, 0.1);
+  border-color: rgba(23, 23, 23, 0.1);
+  color: #000000;
+  border-radius: 5px;
 }
 
 .successMessage {
