@@ -29,11 +29,15 @@ const AboutPage = () => {
               design and impeccable code.
             </article>
           </main>
-          <NavigateButton
-            linkName={'/contact'}
-            children={'CONTACT'}
-            className="btn"
-          />
+          <div mt="2rem">
+            <NavigateButton
+              linkName={'/contact'}
+              variant={'contained'}
+              color={'secondary'}
+              children={'CONTACT'}
+              fullWidth
+            />
+          </div>
         </div>
         <div className={style['right-content']}>
           {/* <aside> */}

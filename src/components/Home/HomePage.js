@@ -21,16 +21,24 @@ const HomePage = () => {
           <h1>Front-end</h1>
           <h2>developer</h2>
           <div className={style['button-container']}>
-            <NavigateButton
-              linkName={'/project'}
-              children={'PROJECTS'}
-              className="btn"
-            />
-            <NavigateButton
-              linkName={'/contact'}
-              children={'CONTACT'}
-              className="btn btn-light"
-            />
+            <div mt="2rem">
+              <NavigateButton
+                linkName={'/project'}
+                variant={'contained'}
+                color={'primary'}
+                children={'PROJECTS'}
+                fullWidth
+              />
+            </div>
+            <div mt="2rem">
+              <NavigateButton
+                linkName={'/contact'}
+                variant={'contained'}
+                color={'secondary'}
+                children={'CONTACT'}
+                fullWidth
+              />
+            </div>
           </div>
         </div>
       </div>
