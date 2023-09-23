@@ -1,8 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button, Box } from '@mui/material';
 
 //The NavigateButton lets us navigate to another screen in our app
-const NavigateButton = ({ linkName, children, className }) => {
+const NavigateButton = ({
+  linkName,
+  variant,
+  color,
+  children,
+  className,
+  startIcon,
+  style,
+}) => {
   // linkName is a destination name of the route
   const navigate = useNavigate();
   const clickHandler = () => {
@@ -10,11 +19,18 @@ const NavigateButton = ({ linkName, children, className }) => {
   };
   return (
     <>
-      <div style={{ marginBottom: 2 }}>
-        <button onClick={clickHandler} className={className}>
+      <Box style={{ marginBottom: 2 }}>
+        <Button
+          onClick={clickHandler}
+          variant={variant}
+          color={color}
+          className={className}
+          startIcon={startIcon}
+          style={style}
+        >
           {children}
-        </button>
-      </div>
+        </Button>
+      </Box>
     </>
   );
 };

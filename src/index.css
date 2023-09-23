@@ -29,14 +29,13 @@ inclusive for all users. That's why the name of the class is
   border: 0;
 }
 
-.btn {
+/* .btn {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.75rem 2rem;
   text-transform: uppercase;
   color: #ffffff;
-  /* background: #520b76; */
   background-color: #975eb0;
   border-radius: 5px;
   border: 1px solid #ffffff;
@@ -59,7 +58,7 @@ inclusive for all users. That's why the name of the class is
 .btn-light {
   color: #ffffff;
   background: transparent;
-}
+} */
 
 h1,
 h2,
