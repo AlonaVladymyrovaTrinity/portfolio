@@ -19,6 +19,7 @@
   color: #000000;
 }
 .about-container .left-content article {
+  text-align: justify;
   margin: 2rem 0;
 }
 /* .left-content button {

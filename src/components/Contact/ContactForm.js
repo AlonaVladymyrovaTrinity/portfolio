@@ -1,5 +1,62 @@
-import style from './ContactForm.module.css';
 import React, { useRef, useState } from 'react';
+import {
+  Container,
+  TextField,
+  Button,
+  Snackbar,
+  Grid,
+  //Typography,
+} from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
+import { styled } from '@mui/material/styles';
+
+//Styles
+const FormContainer = styled(Container)({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: '2rem',
+});
+
+const StyledTextField = styled(TextField)({
+  marginBottom: '1rem',
+  width: '100%',
+});
+
+const SubmitButton = styled(Button)({
+  marginTop: '1rem',
+});
+
+//Form validation
+const validateEmail = (email) => {
+  // Basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validateForm = (formData) => {
+  const errors = {};
+
+  if (!formData.user_name.trim()) {
+    errors.user_name = 'Name is required';
+  }
+
+  if (!formData.user_email.trim()) {
+    errors.user_email = 'Email is required';
+  } else if (!validateEmail(formData.user_email)) {
+    errors.user_email = 'Invalid email format';
+  }
+
+  if (!formData.subject.trim()) {
+    errors.subject = 'Subject is required';
+  }
+
+  if (!formData.message.trim()) {
+    errors.message = 'Message is required';
+  }
+
+  return errors;
+};
 
 const ContactForm = () => {
   const formRef = useRef();
@@ -9,16 +66,34 @@ const ContactForm = () => {
     subject: '',
     message: '',
   });
-  const [submissionStatus, setSubmissionStatus] = useState(null);
+
+  const [snackbarOpen, setSnackbarOpen] = useState(false); //SnackbarClos
+  const [snackbarMessage, setSnackbarMessage] = useState(''); //Message
+  const [snackbarSeverity, setSnackbarSeverity] = useState(''); //Status
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const sendEmail = async (e) => {
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const validationErrors = validateForm(formData);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    // Clear validation errors
+    setErrors({});
+    //API request to send a message
     try {
       const response = await fetch('https://formspree.io/f/xdordlqp', {
         method: 'POST',
@@ -29,7 +104,10 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        setSubmissionStatus('success');
+        setSnackbarSeverity('success');
+        setSnackbarMessage('Message sent successfully!');
+        setSnackbarOpen(true);
+
         // Clear the form
         setFormData({
           user_name: '',
@@ -38,73 +116,98 @@ const ContactForm = () => {
           message: '',
         });
       } else {
-        setSubmissionStatus('error');
+        setSnackbarSeverity('error');
+        setSnackbarMessage(
+          'Oops! Something went wrong. Please try again later.'
+        );
+        setSnackbarOpen(true);
       }
     } catch (error) {
-      setSubmissionStatus('error');
+      setSnackbarSeverity('error');
+      setSnackbarMessage('Oops! Something went wrong. Please try again later.');
+      setSnackbarOpen(true);
     }
-  };
-  const showAlert = (message) => {
-    alert(message);
   };
 
   return (
-    <div className={style['main-block']}>
-      {submissionStatus === 'success' &&
-        showAlert('Message sent successfully!')}
-      {submissionStatus === 'error' &&
-        showAlert('Oops! Something went wrong. Please try again later.')}
-      {/* {submissionStatus === 'success' && (
-        <p className={style.successMessage}>Message sent successfully!</p>
-      )}
-      {submissionStatus === 'error' && (
-        <p className={style.errorMessage}>
-          Oops! Something went wrong. Please try again later.
-        </p>
-      )} */}
-      <form ref={formRef} onSubmit={sendEmail} className={style.form}>
-        <label>Your name</label>
-        <input
-          type="text"
-          name="user_name"
-          required
-          placeholder="Required"
-          value={formData.user_name}
-          onChange={handleInputChange}
-        ></input>
-        <label>Email</label>
-        <input
-          type="email"
-          name="user_email"
-          required
-          placeholder="Required"
-          value={formData.user_email}
-          onChange={handleInputChange}
-        ></input>
-        <label>Subject</label>
-        <input
-          type="text"
-          name="subject"
-          required
-          placeholder="Required"
-          value={formData.subject}
-          onChange={handleInputChange}
-        ></input>
-
-        <label>Message</label>
-        <textarea
-          rows="6"
-          placeholder="Type your message here (Required)"
-          name="message"
-          required
-          value={formData.message}
-          onChange={handleInputChange}
-        />
-        <button type="submit" className="btn">
-          Submit
-        </button>
-      </form>
-    </div>
+    <FormContainer>
+      {/* <Typography variant="h4" component="h2">
+        Contact Us
+      </Typography> */}
+      <Grid
+        container
+        justifyContent="center"
+        sx={{
+          width: { xs: '100%', sm: '100%', md: '50%' }, // Define width for different screen sizes
+        }}
+      >
+        {/* Form with elements */}
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          /*style={{ width: '60%' }}*/ className="form-width"
+        >
+          <StyledTextField
+            label="Your name"
+            type="text"
+            name="user_name"
+            required
+            placeholder="Your Name"
+            value={formData.user_name}
+            onChange={handleInputChange}
+            error={errors.user_name}
+            helperText={errors.user_name && errors.user_name}
+          />
+          <StyledTextField
+            label="Email"
+            type="email"
+            name="user_email"
+            required
+            placeholder="Your Email"
+            value={formData.user_email}
+            onChange={handleInputChange}
+            error={errors.user_email}
+            helperText={errors.user_email && errors.user_email}
+          />
+          <StyledTextField
+            label="Subject"
+            type="text"
+            name="subject"
+            required
+            placeholder="Subject"
+            value={formData.subject}
+            onChange={handleInputChange}
+            error={errors.subject}
+            helperText={errors.subject && errors.subject}
+          />
+          <StyledTextField
+            label="Message"
+            multiline
+            rows={4}
+            placeholder="Your Message"
+            name="message"
+            required
+            value={formData.message}
+            onChange={handleInputChange}
+            error={errors.message}
+            helperText={errors.message && errors.message}
+          />
+          {/* Alert message with result: success of failure */}
+          <SubmitButton type="submit" variant="contained" color="primary">
+            Send
+          </SubmitButton>
+          <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={6000}
+            onClose={handleSnackbarClose}
+          >
+            <MuiAlert onClose={handleSnackbarClose} severity={snackbarSeverity}>
+              {snackbarMessage}
+            </MuiAlert>
+          </Snackbar>
+        </form>
+      </Grid>
+    </FormContainer>
   );
 };
 
