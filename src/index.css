@@ -60,13 +60,13 @@ inclusive for all users. That's why the name of the class is
   background: transparent;
 } */
 
-h1,
+/* h1,
 h2,
 h4,
 p {
   color: #ffffff;
   text-decoration: none;
-}
+} */
 
 ul {
   list-style-type: none;
