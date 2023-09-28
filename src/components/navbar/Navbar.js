@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -8,7 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
@@ -16,11 +16,27 @@ import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 const Navbar = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-  const [value, setValue] = useState(false);
+  const pathToValue = useMemo(
+    () => ({
+      '/': 0,
+      '/project': 1,
+      '/about': 2,
+      '/contact': 3,
+    }),
+    []
+  );
+  // const [value, setValue] = useState(false);
+  const location = useLocation();
+  const [value, setValue] = useState(pathToValue[location.pathname]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    setValue(pathToValue[location.pathname]);
+  }, [location.pathname, pathToValue]);
+
   // const [open, setOpen] = useState(false);
 
   // const toggleMenu = () => {
