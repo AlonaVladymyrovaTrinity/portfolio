@@ -1,4 +1,4 @@
-import React, { useEffect, useState /*, useMemo*/ } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -16,26 +16,15 @@ import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 const Navbar = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-  // const pathToValue = useMemo(
-  //   () => ({
-  //     '/': 0,
-  //     '/project': 1,
-  //     '/about': 2,
-  //     '/contact': 3,
-  //   }),
-  //   []
-  // );
   const [value, setValue] = useState(false);
+  // A flag to check if it's the first render
+  const isFirstRender = useRef(true);
   const location = useLocation();
-  // const [value, setValue] = useState(pathToValue[location.pathname]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  // useEffect(() => {
-  //   setValue(pathToValue[location.pathname]);
-  // }, [location.pathname, pathToValue]);
   useEffect(() => {
     const pathToValue = {
       '/': 0,
@@ -43,27 +32,15 @@ const Navbar = () => {
       '/about': 2,
       '/contact': 3,
     };
-
-    setValue(pathToValue[location.pathname]);
+    if (!isFirstRender.current) {
+      if (location.pathname in pathToValue) {
+        setValue(pathToValue[location.pathname]);
+      }
+    } else {
+      isFirstRender.current = false;
+    }
   }, [location.pathname]);
 
-  // const [open, setOpen] = useState(false);
-
-  // const toggleMenu = () => {
-  //   setOpen(!open);
-  // };
-
-  // const [color, setColor] = useState(false);
-
-  // const changeColor = () => {
-  //   if (window.scrollY >= 100) {
-  //     setColor(true);
-  //   } else {
-  //     setColor(false);
-  //   }
-  // };
-
-  // window.addEventListener('scroll', changeColor);
   return (
     <>
       <AppBar position="fixed">
