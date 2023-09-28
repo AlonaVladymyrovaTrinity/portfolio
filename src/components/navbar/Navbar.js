@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState /*, useMemo*/ } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -16,26 +16,36 @@ import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 const Navbar = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-  const pathToValue = useMemo(
-    () => ({
-      '/': 0,
-      '/project': 1,
-      '/about': 2,
-      '/contact': 3,
-    }),
-    []
-  );
-  // const [value, setValue] = useState(false);
+  // const pathToValue = useMemo(
+  //   () => ({
+  //     '/': 0,
+  //     '/project': 1,
+  //     '/about': 2,
+  //     '/contact': 3,
+  //   }),
+  //   []
+  // );
+  const [value, setValue] = useState(false);
   const location = useLocation();
-  const [value, setValue] = useState(pathToValue[location.pathname]);
+  // const [value, setValue] = useState(pathToValue[location.pathname]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  // useEffect(() => {
+  //   setValue(pathToValue[location.pathname]);
+  // }, [location.pathname, pathToValue]);
   useEffect(() => {
+    const pathToValue = {
+      '/': 0,
+      '/project': 1,
+      '/about': 2,
+      '/contact': 3,
+    };
+
     setValue(pathToValue[location.pathname]);
-  }, [location.pathname, pathToValue]);
+  }, [location.pathname]);
 
   // const [open, setOpen] = useState(false);
 
