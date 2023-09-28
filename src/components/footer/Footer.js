@@ -59,7 +59,7 @@ const Footer = () => {
       <FooterContainer>
         <Container maxWidth="lg">
           <Grid container spacing={5}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <ContentColumn>
                 <ContactWrapper>
                   <FaHome size={20} style={IconStyle} />
