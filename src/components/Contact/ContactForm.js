@@ -69,7 +69,7 @@ const ContactForm = () => {
 
   const [snackbarOpen, setSnackbarOpen] = useState(false); //SnackbarClos
   const [snackbarMessage, setSnackbarMessage] = useState(''); //Message
-  const [snackbarSeverity, setSnackbarSeverity] = useState(''); //Status
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success'); //Status
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
@@ -138,15 +138,11 @@ const ContactForm = () => {
         container
         justifyContent="center"
         sx={{
-          width: { xs: '100%', sm: '100%', md: '50%' }, // Define width for different screen sizes
+          width: { xs: '100%', sm: '100%', md: '50%' }, // Width for different screen sizes
         }}
       >
         {/* Form with elements */}
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          /*style={{ width: '60%' }}*/ className="form-width"
-        >
+        <form ref={formRef} onSubmit={handleSubmit} className="form-width">
           <StyledTextField
             label="Your name"
             type="text"
@@ -192,10 +188,10 @@ const ContactForm = () => {
             error={errors.message}
             helperText={errors.message && errors.message}
           />
-          {/* Alert message with result: success of failure */}
           <SubmitButton type="submit" variant="contained" color="primary">
             Send
           </SubmitButton>
+          {/* Alert message with result: success of failure */}
           <Snackbar
             open={snackbarOpen}
             autoHideDuration={6000}
