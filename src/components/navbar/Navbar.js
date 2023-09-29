@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -8,40 +8,61 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
+
+const initialNavbarStyle = {
+  transform: 'translateY(-100%)',
+  opacity: 0, // Initial opacity is set to 0
+  transition:
+    'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
+};
+const visibleNavbarStyle = {
+  transform: 'translateY(0)',
+  opacity: 1, // When visible, opacity is set to 1
+  transition:
+    'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
+};
 
 const Navbar = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   const [value, setValue] = useState(false);
+  // A flag to check if it's the first render
+  const isFirstRender = useRef(true);
+  const location = useLocation();
+  const [navbarVisible, setNavbarVisible] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  // const [open, setOpen] = useState(false);
 
-  // const toggleMenu = () => {
-  //   setOpen(!open);
-  // };
+  useEffect(() => {
+    const pathToValue = {
+      '/': 0,
+      '/project': 1,
+      '/about': 2,
+      '/contact': 3,
+    };
+    if (!isFirstRender.current) {
+      if (location.pathname in pathToValue) {
+        setValue(pathToValue[location.pathname]);
+      }
+    } else {
+      // Set the navbar to be visible with an animation
+      setNavbarVisible(true);
+      isFirstRender.current = false;
+    }
+  }, [location.pathname]);
 
-  // const [color, setColor] = useState(false);
-
-  // const changeColor = () => {
-  //   if (window.scrollY >= 100) {
-  //     setColor(true);
-  //   } else {
-  //     setColor(false);
-  //   }
-  // };
-
-  // window.addEventListener('scroll', changeColor);
   return (
     <>
-      <AppBar position="fixed">
-        {/* className={color ? 'header header-bg' : 'header'} */}
+      <AppBar
+        position="fixed"
+        style={navbarVisible ? visibleNavbarStyle : initialNavbarStyle}
+      >
         <Toolbar>
           <Typography
             variant="h8"
