@@ -10,6 +10,60 @@
 body {
   background: #ffffff;
 }
+html {
+  /* --gradientHeight: 70vh; */
+  --sectionPaddingTop: 0;
+  --gutterWidth: 16px;
+  --angleStrongSin: 0.212;
+  /* --sectionAngleSin: var(--angleStrongSin); */
+
+  --scrollbarWidth: 0px;
+  --windowWidth: calc(100vw - var(--scrollbarWidth));
+  --layoutWidth: calc(var(--windowWidth) - var(--gutterWidth) * 2);
+  --layoutWidthMax: 1080px;
+  --viewportWidthSmall: 375;
+  --viewportWidthMedium: 600;
+  --viewportWidthLarge: 1112;
+  --viewportScale: calc(var(--windowWidth) / var(--viewportWidthLarge));
+  --paddingTop: 160px;
+  --paddingBottom: 160px;
+  --columnPaddingNone: 0;
+  --columnPaddingSmall: 8px;
+  --columnPaddingNormal: 16px;
+  --columnPaddingMedium: 16px;
+  --columnPaddingLarge: 16px;
+  --columnPaddingXLarge: 16px;
+  --rowGapNormal: 8px;
+  --rowGapMedium: 24px;
+  --rowGapLarge: 32px;
+  --rowGapXLarge: 64px;
+  --rowGapXXLarge: 88px;
+  --rowGap: var(--rowGapNormal);
+  --columnCountMax: 1;
+  --columnWidth: calc(var(--layoutWidth) / var(--columnCountMax));
+  --columnMaxWidth: calc(var(--layoutWidthMax) * 0.25);
+  --copyMaxWidth: calc(var(--columnMaxWidth) * 3);
+}
+@media (min-width: 600px) {
+  html {
+    --columnPaddingMedium: 32px;
+    --columnPaddingLarge: 64px;
+    --columnPaddingXLarge: 64px;
+    --columnCountMax: 2;
+  }
+}
+@media (min-width: 900px) {
+  html {
+    --columnPaddingXLarge: 112px;
+    --columnCountMax: 4;
+  }
+}
+@media (min-width: 1112px) {
+  html {
+    --layoutWidth: var(--layoutWidthMax);
+    --gutterWidth: calc(var(--windowWidth) / 2 - var(--layoutWidth) / 2);
+  }
+}
 
 /*The CSS class "sr-only" is used to hide element visually from
 sighted users while still making them accessible to assistive
