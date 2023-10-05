@@ -8,8 +8,8 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 // Set up a default colour pallete / theme for our whole app using material-ui ThemeProvider context component
 const defaultTheme = createTheme({
   palette: {
-    primary: { main: '#000000' },
-    secondary: { main: '#ff0000' },
+    primary: { main: '#313866' },
+    secondary: { main: '#974EC3' },
     mode: 'light',
   }, // Change "main" to set the primary color
 });

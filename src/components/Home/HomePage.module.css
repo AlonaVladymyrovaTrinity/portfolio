@@ -23,13 +23,29 @@
   position: absolute;
   /* background-color: #0b0025; */
   background: rgb(0, 26, 77);
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
-    rgb(27, 119, 176) 8%,
-    rgb(10, 0, 102) 51%,
-    rgb(177, 85, 23) 100%
+    #a960ee,
+    #ff333d,
+    #90e0ff,
+    #ffcb57
+  ); */
+  background-image: linear-gradient(
+    to left bottom,
+    #ffcb57,
+    #cbdc6c,
+    #9ae595,
+    #72e9c2,
+    #67e7e7,
+    #55dff2,
+    #53d5fb,
+    #61caff,
+    #48b7ff,
+    #57a1ff,
+    #7f85ff,
+    #a960ee
   );
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .home-container {
