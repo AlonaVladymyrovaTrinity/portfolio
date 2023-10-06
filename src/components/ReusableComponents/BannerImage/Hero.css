@@ -1,149 +1,24 @@
-/* Styles for the gradient background */
 .HomepageHeroGradient {
-  --gradientColorZero: rgb(169, 96, 238);
-  --gradientColorOne: rgb(255, 51, 61);
-  --gradientColorTwo: rgb(144, 224, 255);
-  --gradientColorThree: rgb(255, 203, 87);
-  --gradientColorZeroTransparent: rgba(169, 96, 238, 0);
-  --gradientColorOneTransparent: rgba(255, 51, 61, 0);
-  --gradientColorTwoTransparent: rgba(144, 224, 255, 0);
-  --gradientColorThreeTransparent: rgba(255, 203, 87, 0);
-  --gradientAngle: var(--angleStrong);
-  --gradientHeight: calc(
-    100% + var(--sectionPaddingTop) + var(--transformOriginX) *
-      var(--sectionAngleSin)
-  );
-  --offsetX: var(--gutterWidth);
-  --transformOriginX: -60px;
-  --sectionAngleSin: var(--angleStrongSin);
-  position: relative;
-  left: calc(var(--offsetX) * -1);
-  /* width: var(--windowWidth); */
-  height: 70vh; /*var(--gradientHeight);*/
-  transform-origin: var(--transformOriginX) 100%;
-  transform: skewY(var(--gradientAngle));
-  overflow: hidden;
-  border: none;
+  height: 50vh;
   width: 100%;
-  background-image: url(../../../assets/wave.png);
-  background-repeat: no-repeat;
-  background-position: bottom;
-}
-
-/* Additional styles for larger screens (if needed) */
-@media (min-width: 600px) {
-  .HomepageHeroGradient {
-    --transformOriginX: calc(var(--gutterWidth) * 0.8);
-  }
-}
-
-/* Styles for the gradient effect */
-.Gradient {
+  position: relative;
+  min-height: 150px;
   overflow: hidden;
 }
-
 .Gradient__canvas {
   position: relative;
-  display: block;
-  width: inherit;
-  height: 15vh;
-  opacity: 0;
-}
-
-.Gradient__canvas.isLoaded {
-  opacity: 1;
-  transition: opacity 1.8s ease-in 50ms;
-}
-
-.Gradient__guides {
-  --guideDashedColor: rgba(0, 0, 0, 0.3);
-  --guideSolidColor: rgba(0, 0, 0, 0.2);
-  mix-blend-mode: soft-light;
-}
-
-.Gradient:after {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 1000px;
+  height: 50vh;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(
-        var(--gradientColorZero) 40%,
-        var(--gradientColorTwoTransparent) 60%
-      ) -620px -180px no-repeat,
-    radial-gradient(
-        var(--gradientColorThree) 33%,
-        var(--gradientColorThreeTransparent) 67%
-      ) -120px -24px no-repeat,
-    radial-gradient(
-        var(--gradientColorTwo) 40%,
-        var(--gradientColorTwoTransparent) 70%
-      ) -470px 150px no-repeat,
-    var(--gradientColorZero);
 }
 
-/* Additional styles for larger screens */
-@media (min-width: 600px) {
-  .Gradient:after {
-    background: radial-gradient(
-          var(--gradientColorZero) 40%,
-          var(--gradientColorTwoTransparent) 60%
-        ) -420px -180px no-repeat,
-      radial-gradient(
-          var(--gradientColorThree) 23%,
-          var(--gradientColorThreeTransparent) 70%
-        )
-        240px -24px no-repeat,
-      radial-gradient(
-          var(--gradientColorTwo) 30%,
-          var(--gradientColorTwoTransparent) 70%
-        ) -270px 220px no-repeat,
-      var(--gradientColorZero);
-  }
-}
-
-@media (min-width: 900px) {
-  .Gradient:after {
-    background: radial-gradient(
-          var(--gradientColorThree) 23%,
-          var(--gradientColorThreeTransparent) 67% 100%
-        )
-        385px -24px,
-      radial-gradient(
-          var(--gradientColorOne) 0,
-          var(--gradientColorOneTransparent) 60% 100%
-        ) -940px 290px,
-      radial-gradient(
-          var(--gradientColorTwo) 10%,
-          var(--gradientColorTwoTransparent) 60% 100%
-        ) -120px 250px,
-      radial-gradient(
-          var(--gradientColorOne) 40%,
-          var(--gradientColorOneTransparent) 57% 100%
-        )
-        495px -44px,
-      radial-gradient(
-          var(--gradientColorZero) 30%,
-          var(--gradientColorZeroTransparent) 67% 100%
-        )
-        122px -120px,
-      radial-gradient(
-          var(--gradientColorZero) 10%,
-          var(--gradientColorZeroTransparent) 60% 100%
-        ) -420px 250px,
-      var(--gradientColorZero);
-  }
-}
-
-/* Styles for the hero header */
 .HomepageHeroHeader {
+  position: absolute;
+  z-index: 1;
   color: #000000;
-  text-align: center;
-  /* padding: 2rem; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4rem;
 }
 
 .HomepageHeroHeader__title {
@@ -155,17 +30,64 @@
   font-size: 1.5rem;
 }
 
-/* Additional styles for larger screens (if needed) */
-@media (min-width: 600px) {
-  .HomepageHeroHeader {
-    /* padding: 4rem; */
-  }
+/*---Waves---*/
 
-  .HomepageHeroHeader__title {
-    font-size: 4rem;
-  }
+.waves-container {
+  /* position: absolute; */
+  position: relative;
+  z-index: 100;
+  bottom: 5rem;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  min-height: 100px;
+  max-height: 150px;
+}
 
-  .HomepageHeroHeader__caption {
-    font-size: 2rem;
+.waves-container .waves {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Waves animation */
+.waves-container .parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.waves-container .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.waves-container .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.waves-container .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.waves-container .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* Shrinking for mobile */
+@media (max-width: 768px) {
+  .waves-container {
+    height: 40px;
+    min-height: 40px;
   }
 }
