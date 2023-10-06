@@ -40,6 +40,7 @@ function Hero({ title, caption }) {
           {/*Text*/}
           <div className="HomepageHeroHeader__title">{title}</div>
           <div className="HomepageHeroHeader__caption">{caption}</div>
+          <button onClick={handleColorChange}>Change Colors</button>
         </div>
 
         <div className="Gradient">
@@ -60,7 +61,6 @@ function Hero({ title, caption }) {
           </div>
           {/* ---Wave end--- */}
         </div>
-        <button onClick={handleColorChange}>Change Colors</button>
       </div>
     </>
   );
