@@ -1,12 +1,14 @@
-/* Styles for the gradient effect */
-
-#gradient-canvas {
+.HomepageHeroGradient {
+  height: 50vh;
   width: 100%;
-  height: 100%;
-  /* --gradient-color-1: #449ce4;
-  --gradient-color-2: #2f8bc1;
-  --gradient-color-3: #ccbeee;
-  --gradient-color-4: #4c57f6; */
+  position: relative;
+  min-height: 150px;
+  overflow: hidden;
+}
+.Gradient__canvas {
+  position: relative;
+  height: 50vh;
+  width: 100%;
 }
 
 .HomepageHeroHeader {
@@ -16,9 +18,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* display: flex;
-  justify-content: center; */
-  /* text-align: center; */
   padding: 4rem;
 }
 
@@ -30,50 +29,65 @@
 .HomepageHeroHeader__caption {
   font-size: 1.5rem;
 }
-/* .Gradient {
-  overflow: hidden;
-}
 
-.Gradient__canvas {
-  position: relative;
-  display: block;
-  width: inherit;
-  height: 15vh;
-  opacity: 0;
-}
-.Gradient__canvas.isLoaded {
-  opacity: 1;
-  transition: opacity 1.8s ease-in 50ms;
-} */
+/*---Waves---*/
 
-/* Styles for the gradient background */
-/* .HomepageHeroGradient {
-  --offsetX: 0;
-  --transformOriginX: -60px;
-  --gradientHeight: 70vh;
+.waves-container {
+  /* position: absolute; */
   position: relative;
-  left: calc(var(--offsetX) * -1);
-  height: 70vh; var(--gradientHeight);
-  transform-origin: var(--transformOriginX) 100%;
-  overflow: hidden;
-  border: none;
+  z-index: 100;
+  bottom: 5rem;
+  left: 0;
   width: 100%;
-  background-image: url(../../../assets/wave.png);
-  background-repeat: no-repeat;
-  background-position: bottom;
-} */
-/* Styles for the hero header */
-/* .HomepageHeroHeader {
-  color: #000000;
-  text-align: center;
-  padding: 2rem;
+  height: 100px;
+  min-height: 100px;
+  max-height: 150px;
 }
 
-.HomepageHeroHeader__title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.waves-container .waves {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.HomepageHeroHeader__caption {
-  font-size: 1.5rem;
-} */
+/* Waves animation */
+.waves-container .parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.waves-container .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.waves-container .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.waves-container .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.waves-container .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* Shrinking for mobile */
+@media (max-width: 768px) {
+  .waves-container {
+    height: 40px;
+    min-height: 40px;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import { Gradient } from 'whatamesh';
+import Waves from './Waves';
 
 function Hero({ title, caption }) {
   const [gradientColors, setGradientColors] = useState({
@@ -35,12 +36,12 @@ function Hero({ title, caption }) {
   return (
     <>
       <div className="HomepageHeroGradient">
-        <div className="GradientWawe"></div> {/*Wave img*/}
         <div className="HomepageHeroHeader">
           {/*Text*/}
           <div className="HomepageHeroHeader__title">{title}</div>
           <div className="HomepageHeroHeader__caption">{caption}</div>
         </div>
+
         <div className="Gradient">
           {/*Canvas*/}
           <canvas
@@ -53,7 +54,11 @@ function Hero({ title, caption }) {
               '--gradient-color-4': gradientColors.colorThree,
             }}
           ></canvas>
-          <div className="Gradient__guides"></div>
+          {/* ---Wawe start--- */}
+          <div className="waves-container">
+            <Waves className="waves" />
+          </div>
+          {/* ---Wave end--- */}
         </div>
         <button onClick={handleColorChange}>Change Colors</button>
       </div>
