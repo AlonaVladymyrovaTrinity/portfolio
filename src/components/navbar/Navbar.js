@@ -70,7 +70,7 @@ const Navbar = () => {
             sx={{ flexGrow: 1 }}
             style={{ textTransform: 'uppercase' }}
           >
-            Alona Vladymyrova
+            Alona
           </Typography>
           {isMatch ? (
             <>
