@@ -5,12 +5,14 @@ import {
   Typography,
   Tabs,
   Tab,
+  Button,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
-import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+// import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 
 const initialNavbarStyle = {
@@ -88,7 +90,7 @@ const Navbar = () => {
               <Tab label="Projects" component={Link} to="/project" />
               <Tab label="About" component={Link} to="/about" />
               <Tab label="Contact" component={Link} to="/contact" />
-              <Tab
+              {/* <Tab
                 label={
                   <>
                     <div
@@ -100,7 +102,7 @@ const Navbar = () => {
                         fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
                       }}
                     >
-                      <DownloadForOfflineIcon
+                      <PictureAsPdfIcon
                         style={{ fontSize: 'inherit', marginRight: '2px' }}
                       />
                       Resume
@@ -109,8 +111,37 @@ const Navbar = () => {
                 }
                 component="a"
                 href={myResume}
-                download
-              />
+                target="_blank"
+                rel="noreferrer"
+              /> */}
+              {/* <Tab
+              key={4}
+              label={
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  href={myResume}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Resume
+                </Button>
+              }
+            /> */}
+              <Button
+                style={{ marginLeft: '1rem' }}
+                // variant="text"
+                // color="inherit"
+                variant="contained"
+                color="secondary"
+                // startIcon={<PictureAsPdfIcon />}
+                endIcon={<KeyboardArrowRightIcon />}
+                href={myResume}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume
+              </Button>
             </Tabs>
           )}
         </Toolbar>

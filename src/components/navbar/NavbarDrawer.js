@@ -11,7 +11,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import BadgeIcon from '@mui/icons-material/Badge';
 import EmailIcon from '@mui/icons-material/Email';
-import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 import { Link } from 'react-router-dom';
 
@@ -69,14 +69,13 @@ const NavbarDrawer = () => {
             </ListItemText>
           </ListItemButton>
           <ListItemButton key={4} onClick={() => setOpenDrawer(false)}>
-            <DownloadForOfflineIcon style={iconStyle} />
+            <PictureAsPdfIcon style={iconStyle} />
             <ListItemText>
               <Link
                 style={linkStyle}
                 target="_blank"
                 rel="noreferrer"
                 to={myResume}
-                download
               >
                 Resume
               </Link>

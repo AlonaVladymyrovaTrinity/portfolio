@@ -14,10 +14,12 @@ const ProjectCard = (props) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        boxShadow: 15,
+        // boxShadow: 15,
         padding: '10 px',
         alignItems: 'center',
         height: '100%',
+        border: 0,
+        boxShadow: 0,
       }}
     >
       <CardMedia
@@ -27,6 +29,7 @@ const ProjectCard = (props) => {
         image={props.imgsrc}
         title={props.title}
       />
+
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.title}
@@ -34,8 +37,19 @@ const ProjectCard = (props) => {
         <Typography variant="body2" color="text.secondary">
           {props.text}
         </Typography>
+        <Typography variant="body1">Built with: </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {props.builtWith}
+        </Typography>
       </CardContent>
-      <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
+
+      <CardActions
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '0.5rem',
+        }}
+      >
         <Button
           href={props.view}
           target="_blank"
@@ -53,7 +67,7 @@ const ProjectCard = (props) => {
           variant="contained"
           color="secondary"
         >
-          Github Source
+          View Source
         </Button>
       </CardActions>
     </Card>

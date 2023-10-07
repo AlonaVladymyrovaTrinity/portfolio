@@ -22,7 +22,7 @@
   height: 100%;
   position: absolute;
   /* background-color: #0b0025; */
-  background: rgb(0, 26, 77);
+  background: hsla(307, 68%, 56%, 0.465);
   /* background: linear-gradient(
     90deg,
     #a960ee,
@@ -30,7 +30,7 @@
     #90e0ff,
     #ffcb57
   ); */
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to left bottom,
     #ffcb57,
     #cbdc6c,
@@ -44,6 +44,14 @@
     #57a1ff,
     #7f85ff,
     #a960ee
+  );
+  opacity: 0.7; */
+  background-image: linear-gradient(
+    to left bottom,
+    hsla(271, 44%, 44%, 0.4),
+    hsla(218, 40%, 59%, 0.977),
+    hsla(46, 42%, 49%, 0.943),
+    hsla(357, 65%, 40%, 0.4)
   );
   opacity: 0.7;
 }
