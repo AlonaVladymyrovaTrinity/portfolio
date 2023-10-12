@@ -63,14 +63,14 @@ const Footer = () => {
               <ContentColumn>
                 <ContactWrapper>
                   <FaHome size={20} style={IconStyle} />
-                  <Box style={BoldText}>
-                    <Typography variant="subtitle1">
-                      <Box component="span" style={BoldText}>
-                        Location:
-                      </Box>
+                  <Box>
+                    <Typography variant="h6" style={BoldText} display="inline">
+                      Location:
+                    </Typography>
+                    <Typography variant="body1" display="inline">
                       San Francisco Bay Area, California
                     </Typography>
-                    <Typography variant="subtitle1">United States</Typography>
+                    <Typography variant="body1">United States</Typography>
                   </Box>
                 </ContactWrapper>
                 <ContactWrapper>
@@ -81,10 +81,16 @@ const Footer = () => {
                       color="inherit"
                       style={{ textDecoration: 'none' }}
                     >
-                      <Box component="span" style={BoldText}>
+                      <Typography
+                        variant="h6"
+                        style={BoldText}
+                        display="inline-block"
+                      >
                         Phone:
-                      </Box>
-                      +1 (925) 999-5013
+                      </Typography>
+                      <Typography variant="body1" display="inline-block">
+                        +1 (925) 999-5013
+                      </Typography>
                     </Link>
                   </Box>
                 </ContactWrapper>
@@ -96,10 +102,16 @@ const Footer = () => {
                       color="inherit"
                       style={{ textDecoration: 'none' }}
                     >
-                      <Box component="span" style={BoldText}>
+                      <Typography
+                        variant="h6"
+                        style={BoldText}
+                        display="inline-block"
+                      >
                         Email:
-                      </Box>
-                      alona.vladymyrova@gmail.com
+                      </Typography>
+                      <Typography variant="body1" display="inline">
+                        alona.vladymyrova@gmail.com
+                      </Typography>
                     </Link>
                   </Box>
                 </ContactWrapper>
@@ -163,7 +175,7 @@ const Footer = () => {
           margin: '0 1rem 1rem 0',
         }}
       >
-        &copy; {new Date().getFullYear()} Alona Vladymyrova
+        &copy; {new Date().getFullYear()} All rights reserved
       </Typography>
     </AppBar>
   );

@@ -10,15 +10,94 @@
   height: 50vh;
   width: 100%;
 }
+.ChangeColorsButton {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  z-index: 4;
+}
 
 .HomepageHeroHeader {
   position: absolute;
-  z-index: 1;
-  color: #000000;
+  z-index: 3;
+  color: #ffffff;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 4rem;
+  padding: 2rem;
+  /* background-color: #f767da00; */
+  background-image: linear-gradient(
+    to right bottom,
+    #4b24fb,
+    hsla(251, 96%, 56%, 0.3),
+    hsla(251, 96%, 56%, 0.2),
+    transparent,
+    transparent
+  );
+  border-radius: 3.125rem 3.125rem 3.125rem 0;
+}
+.EmptyBox1 {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  min-width: 9.375rem;
+  min-height: 9.375rem;
+  z-index: 2;
+  border-radius: 31.25rem 31.25rem 0 31.25rem;
+  background-image: linear-gradient(
+    to right bottom,
+    #4b24fb,
+    #bd2fdb,
+    #ec5fc6,
+    #ff95c0,
+    #ffcad2
+  );
+}
+.EmptyBox2 {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  min-width: 15.625rem;
+  min-height: 15.625rem;
+  z-index: 2;
+  border-radius: 31.25rem 31.25rem 31.25rem 0;
+  background-image: linear-gradient(
+    to right,
+    #4b24fb,
+    #bd2fdb,
+    #ec5fc6,
+    #ff95c0,
+    #ffcad2
+  );
+}
+.EmptyBox3 {
+  position: absolute;
+  top: 45%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  min-width: 16.625rem;
+  min-height: 16.625rem;
+  z-index: 1;
+  border-radius: 31.25rem 31.25rem 31.25rem 0;
+  background-image: linear-gradient(
+    to left bottom,
+    #90e0ff,
+    hsla(197, 100%, 78%, 0.3),
+    hsla(197, 100%, 78%, 0.1),
+    transparent,
+    transparent
+  );
+}
+.jhg {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 202, 210, 0.4),
+    /*3*/ #4b24fb,
+    /*4*/ #ffcad2 /*5*/ #6de1ff,
+    /*6*/ rgba(255, 255, 255, 0)
+  ); /*7*/
 }
 
 .HomepageHeroHeader__title {

@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&family=Audiowide&family=Black+Han+Sans&family=Rowdies:wght@300&family=Russo+One&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /*'Outfit', sans-serif;*/
+  font-family: 'Russo One', 'Audiowide', 'Black Han Sans', 'Rowdies',
+    'ADLaM Display', 'Archivo Black', 'Roboto', 'Helvetica', 'Arial', sans-serif; /*'Outfit', sans-serif;*/
+  font-weight: 400;
   font-size: 1.2rem;
 }
 body {

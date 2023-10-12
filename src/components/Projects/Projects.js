@@ -40,6 +40,7 @@ const Projects = () => {
               imgsrc={val.imgsrc}
               title={val.title}
               text={val.text}
+              builtWith={val.builtWith}
               view={val.view}
               source={val.source}
             />

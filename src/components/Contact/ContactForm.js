@@ -5,6 +5,8 @@ import {
   Button,
   Snackbar,
   Grid,
+  Typography,
+  Box,
   //Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
@@ -21,6 +23,9 @@ const FormContainer = styled(Container)({
 const StyledTextField = styled(TextField)({
   marginBottom: '1rem',
   width: '100%',
+  // fontWeight: '50',
+  // fontSize: '2rem',
+  // fontFamily: 'Roboto , Helvetica , Arial , sans-serif',
 });
 
 const SubmitButton = styled(Button)({
@@ -141,8 +146,21 @@ const ContactForm = () => {
           width: { xs: '100%', sm: '100%', md: '50%' }, // Width for different screen sizes
         }}
       >
+        <Box style={{ margin: '1rem 0' }}>
+          <Typography
+            /*variant="body2" color="text.secondary"*/ sx={{
+              margin: '0.5rem',
+              color: '#000000',
+              fontSize: '1rem',
+            }}
+          >
+            I am actively seeking new career opportunities and am eager to
+            connect with you. Whether you have inquiries or simply want to
+            engage in a conversation, please don't hesitate to get in touch!
+          </Typography>
+        </Box>
         {/* Form with elements */}
-        <form ref={formRef} onSubmit={handleSubmit} className="form-width">
+        <form ref={formRef} onSubmit={handleSubmit}>
           <StyledTextField
             label="Your name"
             type="text"
