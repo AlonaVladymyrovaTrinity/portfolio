@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import { Gradient } from 'whatamesh';
 import Waves from './Waves';
+import iconImg from '../../../assets/color-palette_2.png';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 function Hero({ title, caption }) {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
   const [gradientColors, setGradientColors] = useState({
     colorZero: '#a960ee',
     colorOne: '#ff333d',
@@ -16,7 +21,13 @@ function Hero({ title, caption }) {
     gradient.initGradient('#gradient-canvas');
   }, [gradientColors]);
 
+  useEffect(() => {
+    setTooltipOpen(true);
+    setTimeout(() => setTooltipOpen(false), 2000);
+  }, []);
+
   const handleColorChange = () => {
+    setTooltipOpen(false);
     // Generate random colors
     const newColors = {
       colorZero: getRandomColor(),
@@ -40,9 +51,38 @@ function Hero({ title, caption }) {
           {/*Text*/}
           <div className="HomepageHeroHeader__title">{title}</div>
           <div className="HomepageHeroHeader__caption">{caption}</div>
-          <button onClick={handleColorChange}>Change Colors</button>
+          {/* Tooltip */}
         </div>
-
+        <div className="EmptyBox1"></div>
+        <div className="EmptyBox2"></div>
+        <div className="EmptyBox3"></div>
+        <div className="ChangeColorsButton">
+          <Tooltip
+            title="Change Colors"
+            // enterDelay={1000}
+            arrow
+            open={tooltipOpen}
+          >
+            <IconButton
+              onClick={handleColorChange}
+              aria-label="Change Colors" // ARIA label for accessibility
+              onMouseEnter={() => {
+                setTimeout(() => setTooltipOpen(true), 800); // Set the delay here
+              }}
+              onMouseLeave={() => setTooltipOpen(false)}
+              //title="Change Colors" // title attribute
+            >
+              <img
+                style={{
+                  width: '2.5rem',
+                  height: '2.5rem',
+                }}
+                src={iconImg} // Ppath to icon
+                alt="Change Colors Icon" // Alt text for accessibility
+              />
+            </IconButton>
+          </Tooltip>
+        </div>
         <div className="Gradient">
           {/*Canvas*/}
           <canvas

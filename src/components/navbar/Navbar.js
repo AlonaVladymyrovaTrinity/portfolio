@@ -9,24 +9,72 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+// import { styled } from '@mui/material/styles';
+
 import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
 // import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
+const StyledTabs = (props) => (
+  <Tabs
+    {...props}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+  />
+);
 
-const initialNavbarStyle = {
-  transform: 'translateY(-100%)',
-  opacity: 0, // Initial opacity is set to 0
-  transition:
-    'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
+const StyledTab = (props) => <Tab disableRipple {...props} />;
+// const StyledTabs = styled((props) => (
+//   <Tabs
+//     {...props}
+//     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+//   />
+// ))({
+//   // '& .MuiTabs-indicator': {
+//   //   display: 'flex',
+//   //   justifyContent: 'center',
+//   //   backgroundColor: 'transparent',
+//   // },
+//   // '& .MuiTabs-indicatorSpan': {
+//   //   maxWidth: 40,
+//   //   width: '100%',
+//   //   backgroundColor: 'red',
+//   // },
+// });
+
+// const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+//   ({ theme }) => ({
+//     // textTransform: 'none',
+//     // fontWeight: theme.typography.fontWeightRegular,
+//     // fontSize: theme.typography.pxToRem(15),
+//     marginRight: theme.spacing(1),
+//     color: 'fff',
+//     '&.Mui-selected': {
+//       color: 'fff',
+//     },
+//     // '&.Mui-focusVisible': {
+//     //   backgroundColor: 'red',
+//     // },
+//   })
+// );
+
+const transparentNavbarStyle = {
+  backgroundColor: 'transparent', // Make the background transparent
+  boxShadow: 'none', // Remove the shadow
 };
-const visibleNavbarStyle = {
-  transform: 'translateY(0)',
-  opacity: 1, // When visible, opacity is set to 1
-  transition:
-    'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
-};
+
+// const initialNavbarStyle = {
+//   transform: 'translateY(-100%)',
+//   opacity: 0, // Initial opacity is set to 0
+//   transition:
+//     'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
+// };
+// const visibleNavbarStyle = {
+//   transform: 'translateY(0)',
+//   opacity: 1, // When visible, opacity is set to 1
+//   transition:
+//     'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
+// };
 
 const Navbar = () => {
   const theme = useTheme();
@@ -35,7 +83,7 @@ const Navbar = () => {
   // A flag to check if it's the first render
   const isFirstRender = useRef(true);
   const location = useLocation();
-  const [navbarVisible, setNavbarVisible] = useState(false);
+  // const [navbarVisible, setNavbarVisible] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -54,7 +102,7 @@ const Navbar = () => {
       }
     } else {
       // Set the navbar to be visible with an animation
-      setNavbarVisible(true);
+      // setNavbarVisible(true);
       isFirstRender.current = false;
     }
   }, [location.pathname]);
@@ -62,8 +110,9 @@ const Navbar = () => {
   return (
     <>
       <AppBar
-        position="fixed"
-        style={navbarVisible ? visibleNavbarStyle : initialNavbarStyle}
+        position="absolute"
+        // style={navbarVisible ? visibleNavbarStyle : initialNavbarStyle}
+        style={transparentNavbarStyle}
       >
         <Toolbar>
           <Typography
@@ -80,17 +129,21 @@ const Navbar = () => {
               <NavbarDrawer />
             </>
           ) : (
-            <Tabs
-              textColor="inherit"
-              value={value}
-              onChange={handleChange}
-              indicatorColor="secondary"
-            >
-              <Tab label="Home" component={Link} to="/" />
-              <Tab label="Projects" component={Link} to="/project" />
-              <Tab label="About" component={Link} to="/about" />
-              <Tab label="Contact" component={Link} to="/contact" />
-              {/* <Tab
+            <>
+              <StyledTabs
+                textColor="inherit"
+                value={value}
+                onChange={handleChange}
+                indicatorColor="secondary"
+                sx={{
+                  '& .MuiTabs-indicatorSpan': { backgroundColor: 'white' },
+                }}
+              >
+                <StyledTab label="Home" component={Link} to="/" />
+                <StyledTab label="Projects" component={Link} to="/project" />
+                <StyledTab label="About" component={Link} to="/about" />
+                <StyledTab label="Contact" component={Link} to="/contact" />
+                {/* <Tab
                 label={
                   <>
                     <div
@@ -114,7 +167,7 @@ const Navbar = () => {
                 target="_blank"
                 rel="noreferrer"
               /> */}
-              {/* <Tab
+                {/* <Tab
               key={4}
               label={
                 <Button
@@ -128,8 +181,9 @@ const Navbar = () => {
                 </Button>
               }
             /> */}
+              </StyledTabs>
               <Button
-                style={{ marginLeft: '1rem' }}
+                style={{ marginLeft: '1rem', color: 'white' }}
                 // variant="text"
                 // color="inherit"
                 variant="contained"
@@ -142,7 +196,7 @@ const Navbar = () => {
               >
                 Resume
               </Button>
-            </Tabs>
+            </>
           )}
         </Toolbar>
       </AppBar>

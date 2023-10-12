@@ -12,21 +12,6 @@ const defaultTheme = createTheme({
     secondary: { main: '#974EC3' }, // Change "main" to set the secondary color
     mode: 'light',
   },
-  // components: {
-  //   MuiTab: {
-  //     styleOverrides: {
-  //       root: {
-  //         color: 'white', // Set the text color to white
-  //         '&.Mui-selected': {
-  //           color: 'white', // Set the text color to white for the selected tab
-  //         },
-  //         '&.MuiTab-textColorInherit': {
-  //           color: 'white', // Set the text color to white for the focused tab
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

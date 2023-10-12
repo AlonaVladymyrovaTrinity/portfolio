@@ -112,7 +112,13 @@ const AboutPage = () => {
             </Typography>
             <main>
               <Article>
-                <Typography variant="h8">
+                <Typography
+                  /*variant="h6"*/ sx={{
+                    margin: '0.5rem',
+                    color: '#000000',
+                    fontSize: '1rem',
+                  }}
+                >
                   I'm a Frontend Developer with a Master's in Computer Science,
                   specializing in HTML, CSS, JavaScript, and React. My focus is
                   on creating accessible, responsive, and visually captivating
@@ -162,7 +168,7 @@ const AboutPage = () => {
                         sx={{
                           margin: '0.5rem',
                           color: '#000000',
-                          fontSize: '1.2rem',
+                          fontSize: '1rem',
                         }}
                       >
                         {skill.label}
