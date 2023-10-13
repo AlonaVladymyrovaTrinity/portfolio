@@ -117,6 +117,7 @@ const transparentNavbarStyle = {
 const Navbar = () => {
   const { handleColorChange } = useColorContext();
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [value, setValue] = useState(false);
 
   useEffect(() => {
     setTooltipOpen(false);
@@ -129,7 +130,6 @@ const Navbar = () => {
 
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-  const [value, setValue] = useState(false);
   // A flag to check if it's the first render
   const isFirstRender = useRef(true);
   const location = useLocation();
