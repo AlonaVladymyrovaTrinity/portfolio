@@ -13,12 +13,6 @@
   height: 50vh;
   width: 100%;
 }
-/* .ChangeColorsButton {
-  position: absolute;
-  top: 3rem;
-  left: 1rem;
-  z-index: 4;
-} */
 
 .HomepageHeroHeader {
   position: absolute;
@@ -162,11 +156,12 @@
     transform: translate3d(85px, 0, 0);
   }
 }
-
-/* Shrinking for mobile */
-/* @media (max-width: 768px) {
-  .waves-container {
-    height: 40px;
-    min-height: 40px;
+@media screen and (max-width: 40rem) {
+  .HomepageHeroHeader__title {
+    font-size: 2rem;
   }
-} */
+
+  .HomepageHeroHeader__caption {
+    font-size: 1.4rem;
+  }
+}
