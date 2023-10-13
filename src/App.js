@@ -6,10 +6,11 @@ import Contact from './routes/Contact';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import { ColorProvider } from './context/ColorContext';
 
 function App() {
   return (
-    <>
+    <ColorProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,7 +19,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </>
+    </ColorProvider>
   );
 }
 
