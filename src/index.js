@@ -12,6 +12,15 @@ const defaultTheme = createTheme({
     secondary: { main: '#974EC3' }, // Change "main" to set the secondary color
     mode: 'light',
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '1.25rem', // Set the desired border radius here
+        },
+      },
+    },
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
