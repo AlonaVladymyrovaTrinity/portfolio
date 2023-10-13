@@ -48,6 +48,9 @@
 .home-container {
   height: 100%;
   width: 100%;
+  font-family: 'Audiowide', 'Russo One', 'Black Han Sans', 'Rowdies',
+    'ADLaM Display', 'Archivo Black', 'Roboto', 'Helvetica', 'Arial', sans-serif; /*'Outfit', sans-serif;*/
+  font-weight: 400;
 }
 
 .home-container .content {

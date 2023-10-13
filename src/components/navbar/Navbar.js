@@ -9,58 +9,79 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-// import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
 // import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
-const StyledTabs = (props) => (
+// import { red } from '@mui/material/colors';
+
+const CustomButton = styled(Button)(({ theme }) => ({
+  marginLeft: '1rem',
+  color: 'white',
+  fontWeight: 'bold',
+  backgroundColor: 'hsla(0, 0%, 100%, 0.3)',
+  borderRadius: '1.25rem',
+  textShadow: '0 0 2px #000',
+  transition: 'background-color 0.5s',
+  // fontFamily:
+  //   'Russo One, Audiowide, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
+  // fontWeight: '400',
+  '&:hover': {
+    backgroundColor: 'hsla(0, 0%, 100%, 0.5)',
+  },
+  // boxShadow: 'none',
+}));
+
+const StyledTabs = styled((props) => (
   <Tabs
     {...props}
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
+))({
+  // '& .MuiTabs-indicator': {
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   backgroundColor: 'transparent',
+  // },
+  // '& .MuiTabs-indicatorSpan': {
+  //   maxWidth: 40,
+  //   width: '100%',
+  //   backgroundColor: 'red',
+  // },
+});
+
+const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+  ({ theme }) => ({
+    // textTransform: 'none',
+    // fontWeight: theme.typography.fontWeightRegular,
+    // fontSize: theme.typography.pxToRem(15),
+    marginRight: theme.spacing(1),
+    color: '#fff',
+    textShadow: '0 0 2px #000',
+    fontWeight: 'bold',
+    // fontFamily:
+    //   'Russo One, Audiowide, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
+    // fontWeight: '400',
+    opacity: '1',
+    '&.Mui-selected': {
+      color: '#fff',
+      fontWeight: 'bold',
+      textShadow: '0 0 2px #000',
+    },
+    // '&.Mui-focusVisible': {
+    //   backgroundColor: 'red',
+    // },
+  })
 );
 
-const StyledTab = (props) => <Tab disableRipple {...props} />;
-// const StyledTabs = styled((props) => (
-//   <Tabs
-//     {...props}
-//     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
-//   />
-// ))({
-//   // '& .MuiTabs-indicator': {
-//   //   display: 'flex',
-//   //   justifyContent: 'center',
-//   //   backgroundColor: 'transparent',
-//   // },
-//   // '& .MuiTabs-indicatorSpan': {
-//   //   maxWidth: 40,
-//   //   width: '100%',
-//   //   backgroundColor: 'red',
-//   // },
-// });
-
-// const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
-//   ({ theme }) => ({
-//     // textTransform: 'none',
-//     // fontWeight: theme.typography.fontWeightRegular,
-//     // fontSize: theme.typography.pxToRem(15),
-//     marginRight: theme.spacing(1),
-//     color: 'fff',
-//     '&.Mui-selected': {
-//       color: 'fff',
-//     },
-//     // '&.Mui-focusVisible': {
-//     //   backgroundColor: 'red',
-//     // },
-//   })
-// );
-
 const transparentNavbarStyle = {
-  backgroundColor: 'transparent', // Make the background transparent
+  backgroundColor: 'transparent', // 'hsla(197, 100%, 78%, 0.4)' Make the background transparent
   boxShadow: 'none', // Remove the shadow
+  backgroundImage:
+    'linear-gradient(to bottom, hsla(251, 96%, 56%, 0.7), hsla(251, 96%, 56%, 0.5), hsla(251, 96%, 56%, 0.4),hsla(251, 96%, 56%, 0.3),hsla(251, 96%, 56%, 0.2), hsla(251, 96%, 56%, 0.1),transparent)',
 };
 
 // const initialNavbarStyle = {
@@ -119,7 +140,13 @@ const Navbar = () => {
             variant="h8"
             component="div"
             sx={{ flexGrow: 1 }}
-            style={{ textTransform: 'uppercase' }}
+            style={{
+              textTransform: 'uppercase',
+              textShadow: '0 0 2px #000',
+              fontFamily:
+                'Audiowide, Russo One, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
+              fontWeight: '400',
+            }}
           >
             Alona
           </Typography>
@@ -134,10 +161,7 @@ const Navbar = () => {
                 textColor="inherit"
                 value={value}
                 onChange={handleChange}
-                indicatorColor="secondary"
-                sx={{
-                  '& .MuiTabs-indicatorSpan': { backgroundColor: 'white' },
-                }}
+                indicatorColor="primary"
               >
                 <StyledTab label="Home" component={Link} to="/" />
                 <StyledTab label="Projects" component={Link} to="/project" />
@@ -182,8 +206,20 @@ const Navbar = () => {
               }
             /> */}
               </StyledTabs>
-              <Button
-                style={{ marginLeft: '1rem', color: 'white' }}
+              <CustomButton
+                // style={{
+                //   marginLeft: '1rem',
+                //   color: 'white',
+                //   fontWeight: 'bold',
+                //   textShadow: '0 0 2px #000',
+                //   borderRadius: '20px',
+                //   backgroundColor: 'hsla(0,0%,100%,0.2)',
+                //   transition: 'background-color 0.3s',
+                //   '&:hover': {
+                //     backgroundColor: 'hsla(0,0%,100%,0.4)',
+                //     color: 'white',
+                //   },
+                // }}
                 // variant="text"
                 // color="inherit"
                 variant="contained"
@@ -195,7 +231,7 @@ const Navbar = () => {
                 rel="noreferrer"
               >
                 Resume
-              </Button>
+              </CustomButton>
             </>
           )}
         </Toolbar>

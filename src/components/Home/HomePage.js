@@ -1,6 +1,6 @@
 import style from './HomePage.module.css';
 import React from 'react';
-// import bgImage from '../../assets/girl-coding.jpg';
+import bgImage from '../../assets/girl-coding.jpg';
 import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton';
 
 const HomePage = () => {
@@ -8,11 +8,11 @@ const HomePage = () => {
     <>
       <div className={style['home-container']}>
         <div className={style['mask']}>
-          {/* <img
+          <img
             className={style['bg-img']}
             src={bgImage}
             alt="Front-end developer"
-          /> */}
+          />
         </div>
         <div className={style['content']}>
           <p>Hello, I am Alona Vladymyrova</p>

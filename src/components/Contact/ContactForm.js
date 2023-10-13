@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
+import SendIcon from '@mui/icons-material/Send';
 
 //Styles
 const FormContainer = styled(Container)({
@@ -206,7 +207,12 @@ const ContactForm = () => {
             error={errors.message}
             helperText={errors.message && errors.message}
           />
-          <SubmitButton type="submit" variant="contained" color="primary">
+          <SubmitButton
+            type="submit"
+            variant="contained"
+            color="primary"
+            endIcon={<SendIcon />}
+          >
             Send
           </SubmitButton>
           {/* Alert message with result: success of failure */}
