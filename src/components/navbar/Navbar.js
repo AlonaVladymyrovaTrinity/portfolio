@@ -17,6 +17,11 @@ import NavbarDrawer from './NavbarDrawer';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
 // import { red } from '@mui/material/colors';
+import { useColorContext } from '../../context/ColorContext';
+// import iconImg from '../../assets/color-palette_2.png';
+import PaletteIcon from '@mui/icons-material/Palette';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 const CustomButton = styled(Button)(({ theme }) => ({
   marginLeft: '1rem',
@@ -32,7 +37,19 @@ const CustomButton = styled(Button)(({ theme }) => ({
   '&:hover': {
     backgroundColor: 'hsla(0, 0%, 100%, 0.5)',
   },
-  // boxShadow: 'none',
+}));
+
+const CustomIconButton = styled(IconButton)(({ theme }) => ({
+  color: 'white',
+  backgroundColor: 'hsla(0, 0%, 100%, 0.3)',
+  transition: 'background-color 0.5s',
+  '&:hover': {
+    backgroundColor: 'hsla(0, 0%, 100%, 0.5)',
+    boxShadow:
+      '0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)',
+  },
+  boxShadow:
+    '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
 }));
 
 const StyledTabs = styled((props) => (
@@ -98,6 +115,18 @@ const transparentNavbarStyle = {
 // };
 
 const Navbar = () => {
+  const { handleColorChange } = useColorContext();
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  useEffect(() => {
+    setTooltipOpen(false);
+  }, [handleColorChange]);
+
+  useEffect(() => {
+    setTooltipOpen(true);
+    setTimeout(() => setTooltipOpen(false), 2000);
+  }, []);
+
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   const [value, setValue] = useState(false);
@@ -137,7 +166,7 @@ const Navbar = () => {
       >
         <Toolbar>
           <Typography
-            variant="h8"
+            variant="h7"
             component="div"
             sx={{ flexGrow: 1 }}
             style={{
@@ -157,6 +186,32 @@ const Navbar = () => {
             </>
           ) : (
             <>
+              <Tooltip
+                title="Change Colors"
+                // enterDelay={1000}
+                arrow
+                open={tooltipOpen}
+              >
+                <CustomIconButton
+                  onClick={handleColorChange}
+                  aria-label="Change Colors" // ARIA label for accessibility
+                  onMouseEnter={() => {
+                    setTimeout(() => setTooltipOpen(true), 800); // Delay on mouse enter for Tooltip show
+                  }}
+                  onMouseLeave={() => setTooltipOpen(false)}
+                  //title="Change Colors" // title attribute
+                >
+                  {/* <img
+                    style={{
+                      width: '1rem',
+                      height: '1rem',
+                    }}
+                    src={iconImg} // Path to icon
+                    alt="Change Colors Icon" // Alt text for accessibility
+                  /> */}
+                  <PaletteIcon fontSize="small" sx={{ color: '#fff' }} />
+                </CustomIconButton>
+              </Tooltip>
               <StyledTabs
                 textColor="inherit"
                 value={value}
