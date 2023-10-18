@@ -2,7 +2,8 @@
   height: 50vh;
   width: 100%;
   position: relative;
-  min-height: 150px;
+  min-height: 12rem;
+  max-height: 25rem;
   overflow: hidden;
   font-family: 'Audiowide', 'Russo One', 'Black Han Sans', 'Rowdies',
     'ADLaM Display', 'Archivo Black', 'Roboto', 'Helvetica', 'Arial', sans-serif; /*'Outfit', sans-serif;*/
@@ -11,6 +12,8 @@
 .Gradient__canvas {
   position: relative;
   height: 50vh;
+  min-height: 12rem;
+  max-height: 25rem;
   width: 100%;
 }
 
@@ -157,11 +160,18 @@
   }
 }
 @media screen and (max-width: 40rem) {
+  .HomepageHeroGradient {
+    height: 35vh;
+  }
+  .Gradient__canvas {
+    height: 35vh;
+  }
   .HomepageHeroHeader__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    white-space: nowrap;
   }
 
   .HomepageHeroHeader__caption {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 }

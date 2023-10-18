@@ -88,7 +88,8 @@ const Img = styled('div')({
 });
 
 const SkillBoxContainer = styled('div')({
-  color: '#ddd',
+  // color: '#ddd',
+  color: '#000000',
   cursor: 'pointer',
   '&:hover': {
     transform: 'translateY(-0.625rem)',
@@ -115,8 +116,8 @@ const AboutPage = () => {
                 <Typography
                   /*variant="h6"*/ sx={{
                     margin: '0.5rem',
-                    color: '#000000',
-                    fontSize: '1rem',
+                    // color: '#000000',
+                    // fontSize: '1rem',
                   }}
                 >
                   I'm a Frontend Developer with a Master's in Computer Science,
@@ -167,8 +168,8 @@ const AboutPage = () => {
                       <Typography
                         sx={{
                           margin: '0.5rem',
-                          color: '#000000',
-                          fontSize: '1rem',
+                          // color: '#000000',
+                          // fontSize: '1rem',
                         }}
                       >
                         {skill.label}
