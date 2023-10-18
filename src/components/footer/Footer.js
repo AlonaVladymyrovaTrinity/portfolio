@@ -67,10 +67,23 @@ const Footer = () => {
                     <Typography variant="h6" style={BoldText} display="inline">
                       Location:
                     </Typography>
-                    <Typography variant="body1" display="inline">
+                    <Typography
+                      variant="body1"
+                      display="inline"
+                      sx={{
+                        fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                      }}
+                    >
                       San Francisco Bay Area, California
                     </Typography>
-                    <Typography variant="body1">United States</Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                      }}
+                    >
+                      United States
+                    </Typography>
                   </Box>
                 </ContactWrapper>
                 <ContactWrapper>
@@ -88,7 +101,13 @@ const Footer = () => {
                       >
                         Phone:
                       </Typography>
-                      <Typography variant="body1" display="inline-block">
+                      <Typography
+                        variant="body1"
+                        display="inline-block"
+                        sx={{
+                          fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                        }}
+                      >
                         +1 (925) 999-5013
                       </Typography>
                     </Link>
@@ -109,7 +128,13 @@ const Footer = () => {
                       >
                         Email:
                       </Typography>
-                      <Typography variant="body1" display="inline">
+                      <Typography
+                        variant="body1"
+                        display="inline"
+                        sx={{
+                          fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                        }}
+                      >
                         alona.vladymyrova@gmail.com
                       </Typography>
                     </Link>
@@ -122,10 +147,20 @@ const Footer = () => {
                 <Typography variant="h6" style={BoldText}>
                   About Me
                 </Typography>
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                  }}
+                >
                   Front-end developer • Master's in Computer Science
                 </Typography>
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                  }}
+                >
                   Fully Work Authorized • No Visa Sponsorship Required
                 </Typography>
                 <Social>
