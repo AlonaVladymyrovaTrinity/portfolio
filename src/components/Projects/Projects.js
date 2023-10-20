@@ -1,7 +1,6 @@
 import ProjectCard from './ProjectCard';
 import ProjectsList from './ProjectsList';
 import React from 'react';
-//import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 const Projects = () => {
@@ -16,7 +15,6 @@ const Projects = () => {
         container
         alignItems="stretch"
         spacing={2}
-        // columns={{ xs: 4, sm: 8, md: 12 }}
         justifyContent="center"
         marginLeft={0}
         style={{ marginTop: '30px', marginBottom: '30px' }}

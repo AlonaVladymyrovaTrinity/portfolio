@@ -8,17 +8,15 @@ import {
   Button,
   useMediaQuery,
   useTheme,
+  Box,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
-// import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
-// import { red } from '@mui/material/colors';
 import { useColorContext } from '../../context/ColorContext';
-// import iconImg from '../../assets/color-palette_2.png';
 import PaletteIcon from '@mui/icons-material/Palette';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
@@ -31,9 +29,6 @@ const CustomButton = styled(Button)(({ theme }) => ({
   borderRadius: '1.25rem',
   textShadow: '0 0 2px #000',
   transition: 'background-color 0.5s',
-  // fontFamily:
-  //   'Russo One, Audiowide, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
-  // fontWeight: '400',
   '&:hover': {
     backgroundColor: 'hsla(0, 0%, 100%, 0.5)',
   },
@@ -41,6 +36,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 const CustomIconButton = styled(IconButton)(({ theme }) => ({
   color: 'white',
+  marginRight: '1rem',
   backgroundColor: 'hsla(0, 0%, 100%, 0.3)',
   transition: 'background-color 0.5s',
   '&:hover': {
@@ -57,62 +53,29 @@ const StyledTabs = styled((props) => (
     {...props}
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
-))({
-  // '& .MuiTabs-indicator': {
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   backgroundColor: 'transparent',
-  // },
-  // '& .MuiTabs-indicatorSpan': {
-  //   maxWidth: 40,
-  //   width: '100%',
-  //   backgroundColor: 'red',
-  // },
-});
+))({});
 
 const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
   ({ theme }) => ({
-    // textTransform: 'none',
-    // fontWeight: theme.typography.fontWeightRegular,
-    // fontSize: theme.typography.pxToRem(15),
     marginRight: theme.spacing(1),
     color: '#fff',
     textShadow: '0 0 2px #000',
     fontWeight: 'bold',
-    // fontFamily:
-    //   'Russo One, Audiowide, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
-    // fontWeight: '400',
     opacity: '1',
     '&.Mui-selected': {
       color: '#fff',
       fontWeight: 'bold',
       textShadow: '0 0 2px #000',
     },
-    // '&.Mui-focusVisible': {
-    //   backgroundColor: 'red',
-    // },
   })
 );
 
 const transparentNavbarStyle = {
-  backgroundColor: 'transparent', // 'hsla(197, 100%, 78%, 0.4)' Make the background transparent
-  boxShadow: 'none', // Remove the shadow
+  backgroundColor: 'transparent',
+  boxShadow: 'none',
   backgroundImage:
     'linear-gradient(to bottom, hsla(251, 96%, 56%, 0.7), hsla(251, 96%, 56%, 0.5), hsla(251, 96%, 56%, 0.4),hsla(251, 96%, 56%, 0.3),hsla(251, 96%, 56%, 0.2), hsla(251, 96%, 56%, 0.1),transparent)',
 };
-
-// const initialNavbarStyle = {
-//   transform: 'translateY(-100%)',
-//   opacity: 0, // Initial opacity is set to 0
-//   transition:
-//     'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
-// };
-// const visibleNavbarStyle = {
-//   transform: 'translateY(0)',
-//   opacity: 1, // When visible, opacity is set to 1
-//   transition:
-//     'transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease-in-out',
-// };
 
 const Navbar = () => {
   const { handleColorChange } = useColorContext();
@@ -133,7 +96,6 @@ const Navbar = () => {
   // A flag to check if it's the first render
   const isFirstRender = useRef(true);
   const location = useLocation();
-  // const [navbarVisible, setNavbarVisible] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -151,34 +113,45 @@ const Navbar = () => {
         setValue(pathToValue[location.pathname]);
       }
     } else {
-      // Set the navbar to be visible with an animation
-      // setNavbarVisible(true);
       isFirstRender.current = false;
     }
   }, [location.pathname]);
 
+  const CustomLogoLink = styled(Typography)({
+    textTransform: 'uppercase',
+    textShadow: '0 0 2px #000',
+    fontFamily:
+      'Audiowide, Russo One, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
+    fontWeight: '400',
+    color: '#fff',
+    textDecoration: 'none',
+    '&:hover': {
+      textShadow: '3px 3px 20px #ff99cc, -2px 1px 30px #ff99cc',
+    },
+  });
+
   return (
     <>
-      <AppBar
-        position="absolute"
-        // style={navbarVisible ? visibleNavbarStyle : initialNavbarStyle}
-        style={transparentNavbarStyle}
-      >
+      <AppBar position="absolute" style={transparentNavbarStyle}>
         <Toolbar>
-          <Typography
-            variant="h7"
-            component="div"
-            sx={{ flexGrow: 1 }}
-            style={{
-              textTransform: 'uppercase',
-              textShadow: '0 0 2px #000',
-              fontFamily:
-                'Audiowide, Russo One, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
-              fontWeight: '400',
-            }}
-          >
-            Alona
-          </Typography>
+          <Tooltip title="Change Colors" arrow open={tooltipOpen}>
+            <CustomIconButton
+              onClick={handleColorChange}
+              aria-label="Change Colors" // ARIA label for accessibility
+              onMouseEnter={() => {
+                setTimeout(() => setTooltipOpen(true), 800); // Delay on mouse enter for Tooltip show
+              }}
+              onMouseLeave={() => setTooltipOpen(false)}
+              //title="Change Colors" // title attribute
+            >
+              <PaletteIcon fontSize="small" sx={{ color: '#fff' }} />
+            </CustomIconButton>
+          </Tooltip>
+          <Box sx={{ flexGrow: 1 }}>
+            <CustomLogoLink variant="h7" label="Home" component={Link} to="/">
+              Alona
+            </CustomLogoLink>
+          </Box>
           {isMatch ? (
             <>
               <Typography>Menu</Typography>
@@ -186,32 +159,6 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Tooltip
-                title="Change Colors"
-                // enterDelay={1000}
-                arrow
-                open={tooltipOpen}
-              >
-                <CustomIconButton
-                  onClick={handleColorChange}
-                  aria-label="Change Colors" // ARIA label for accessibility
-                  onMouseEnter={() => {
-                    setTimeout(() => setTooltipOpen(true), 800); // Delay on mouse enter for Tooltip show
-                  }}
-                  onMouseLeave={() => setTooltipOpen(false)}
-                  //title="Change Colors" // title attribute
-                >
-                  {/* <img
-                    style={{
-                      width: '1rem',
-                      height: '1rem',
-                    }}
-                    src={iconImg} // Path to icon
-                    alt="Change Colors Icon" // Alt text for accessibility
-                  /> */}
-                  <PaletteIcon fontSize="small" sx={{ color: '#fff' }} />
-                </CustomIconButton>
-              </Tooltip>
               <StyledTabs
                 textColor="inherit"
                 value={value}
@@ -222,64 +169,11 @@ const Navbar = () => {
                 <StyledTab label="Projects" component={Link} to="/project" />
                 <StyledTab label="About" component={Link} to="/about" />
                 <StyledTab label="Contact" component={Link} to="/contact" />
-                {/* <Tab
-                label={
-                  <>
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        fontSize: '0.875rem',
-                        fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-                      }}
-                    >
-                      <PictureAsPdfIcon
-                        style={{ fontSize: 'inherit', marginRight: '2px' }}
-                      />
-                      Resume
-                    </div>
-                  </>
-                }
-                component="a"
-                href={myResume}
-                target="_blank"
-                rel="noreferrer"
-              /> */}
-                {/* <Tab
-              key={4}
-              label={
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  href={myResume}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Resume
-                </Button>
-              }
-            /> */}
               </StyledTabs>
               <CustomButton
-                // style={{
-                //   marginLeft: '1rem',
-                //   color: 'white',
-                //   fontWeight: 'bold',
-                //   textShadow: '0 0 2px #000',
-                //   borderRadius: '20px',
-                //   backgroundColor: 'hsla(0,0%,100%,0.2)',
-                //   transition: 'background-color 0.3s',
-                //   '&:hover': {
-                //     backgroundColor: 'hsla(0,0%,100%,0.4)',
-                //     color: 'white',
-                //   },
-                // }}
-                // variant="text"
-                // color="inherit"
                 variant="contained"
                 color="secondary"
-                // startIcon={<PictureAsPdfIcon />}
+                aria-label="Open resume"
                 endIcon={<KeyboardArrowRightIcon />}
                 href={myResume}
                 target="_blank"

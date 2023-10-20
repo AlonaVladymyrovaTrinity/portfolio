@@ -8,9 +8,9 @@ export const useColorContext = () => {
 
 export const ColorProvider = ({ children }) => {
   const [gradientColors, setGradientColors] = useState({
-    colorZero: '#a960ee',
-    colorOne: '#ff333d',
-    colorTwo: '#90e0ff',
+    colorZero: '#ff333d',
+    colorOne: '#c81ee8',
+    colorTwo: '#42c1f9',
     colorThree: '#ffcb57',
   });
 

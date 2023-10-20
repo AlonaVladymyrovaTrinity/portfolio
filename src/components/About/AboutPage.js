@@ -13,6 +13,15 @@ import MaterialUiIcon from '../../assets/material-ui-logo.png';
 import GithubIcon from '../../assets/github_icon.png';
 import SqlIcon from '../../assets/sql_icon.png';
 
+const CustomButton = styled(NavigateButton)(({ theme }) => ({
+  backgroundImage: theme.palette.custom.main.backgroundImage,
+  color: theme.palette.custom.main.color,
+  transition: 'background-color 0.5s',
+  '&:hover': {
+    opacity: '0.7',
+  },
+}));
+
 const StyledContainer = styled('div')({
   width: '100%',
   padding: '2rem 0',
@@ -81,14 +90,13 @@ const Img = styled('div')({
     left: 0,
     width: '50%',
     height: '4.375rem',
-    background: 'hsla(282, 34%, 53%, 0.5)',
+    background: 'hsla(262, 87%, 55%, 0.3)',
     borderRadius: '2.813rem 0 0 2.813rem',
     transition: '0.5s',
   },
 });
 
 const SkillBoxContainer = styled('div')({
-  // color: '#ddd',
   color: '#000000',
   cursor: 'pointer',
   '&:hover': {
@@ -114,16 +122,24 @@ const AboutPage = () => {
             <main>
               <Article>
                 <Typography
-                  /*variant="h6"*/ sx={{
+                  sx={{
                     margin: '0.5rem',
-                    // color: '#000000',
-                    // fontSize: '1rem',
                   }}
                 >
                   I'm a Frontend Developer with a Master's in Computer Science,
                   specializing in HTML, CSS, JavaScript, and React. My focus is
                   on creating accessible, responsive, and visually captivating
                   designs that seamlessly adapt to various devices.
+                  <br />
+                  <br />
+                  In addition to my technical expertise, I possess a strong set
+                  of in-demand soft skills that make me an exceptional team
+                  player. Collaboration, communication, and adaptability are not
+                  just buzzwords for me; they're the cornerstones of my approach
+                  to web development. I understand the value of working
+                  harmoniously with cross-functional teams, designers, and
+                  clients, ensuring a smooth and collaborative project
+                  experience.
                   <br />
                   <br />
                   With a keen eye for detail and a passion for user-centric
@@ -133,7 +149,7 @@ const AboutPage = () => {
                 </Typography>
               </Article>
             </main>
-            <NavigateButton
+            <CustomButton
               linkName={'/contact'}
               variant={'contained'}
               color={'secondary'}
@@ -163,13 +179,15 @@ const AboutPage = () => {
                   <SkillBoxContainer>
                     <SkillTitle>
                       <Img>
-                        <SkillIcon src={skill.icon} alt={skill.label} />
+                        <SkillIcon
+                          src={skill.icon}
+                          alt={skill.label}
+                          aria-label={skill.label}
+                        />
                       </Img>
                       <Typography
                         sx={{
                           margin: '0.5rem',
-                          // color: '#000000',
-                          // fontSize: '1rem',
                         }}
                       >
                         {skill.label}

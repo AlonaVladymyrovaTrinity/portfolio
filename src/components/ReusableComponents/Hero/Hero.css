@@ -6,7 +6,7 @@
   max-height: 25rem;
   overflow: hidden;
   font-family: 'Audiowide', 'Russo One', 'Black Han Sans', 'Rowdies',
-    'ADLaM Display', 'Archivo Black', 'Roboto', 'Helvetica', 'Arial', sans-serif; /*'Outfit', sans-serif;*/
+    'ADLaM Display', 'Archivo Black', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
 }
 .Gradient__canvas {
@@ -25,7 +25,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 2rem;
-  /* background-color: #f767da00; */
   background-image: linear-gradient(
     to right bottom,
     #4b24fb,
@@ -94,10 +93,6 @@
 .HomepageHeroHeader__title {
   font-size: 3rem;
   margin-bottom: 1rem;
-  /* text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000,
-    -1px -1px #000, 1px -1px #000, -1px 1px #000; */
-  /* -webkit-text-stroke: 2px #000; */
-  /* text-shadow: 2px 2px 0 #000; */
   text-shadow: 0 0 3px #000;
 }
 
@@ -109,7 +104,6 @@
 /*---Waves---*/
 
 .waves-container {
-  /* position: absolute; */
   position: relative;
   z-index: 100;
   bottom: 3rem;

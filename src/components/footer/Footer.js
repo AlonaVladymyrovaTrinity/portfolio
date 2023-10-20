@@ -7,13 +7,15 @@ import {
   FaPhone,
 } from 'react-icons/fa';
 import { Icon } from '@iconify/react';
-import { Container, Grid, Typography, Link, Box, AppBar } from '@mui/material';
+import {
+  Container,
+  Grid,
+  Typography,
+  Link,
+  Box,
+  CssBaseline,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
-
-const FooterContainer = styled('div')({
-  padding: '3rem 0 0.7rem 0',
-  color: '#ffffff',
-});
 
 const ContentColumn = styled('div')({
   padding: '1rem',
@@ -41,28 +43,95 @@ const IconStyle = {
 
 const BoldText = {
   fontWeight: 'bold',
-  marginRight: '0.4rem',
   color: '#ffffff',
+  marginRight: '0.625rem',
 };
 
 const CodewarsIconStyle = {
-  width: '1.83rem',
+  width: '2.2rem',
   height: 'auto',
   color: '#ffffff',
   borderRadius: '0.2rem',
-  marginTop: '0.10rem',
+  marginTop: '0.15rem',
 };
 
 const Footer = () => {
   return (
-    <AppBar position="static" color="primary">
-      <FooterContainer>
-        <Container maxWidth="lg">
-          <Grid container spacing={5}>
-            <Grid item xs={12} sm={12} md={6}>
+    <>
+      <CssBaseline />
+
+      <Box
+        sx={{
+          backgroundColor: (theme) => theme.palette.primary.main,
+          height: '100%',
+          display: 'flex',
+          WebkitBoxPack: 'center',
+          msFlexPack: 'center',
+          WebkitJustifyContent: 'center',
+          justifyContent: 'center',
+        }}
+        component="footer"
+      >
+        <Container maxWidth="xl">
+          <Grid container spacing={{ xs: '0', sm: '0', md: 2 }}>
+            <Grid item xs={12} sm={12} md={5}>
               <ContentColumn>
+                <Typography variant="h6" style={BoldText} gutterBottom>
+                  About Me
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                    paddingBottom: '0.7rem',
+                  }}
+                  color="white"
+                >
+                  • Front-end developer
+                </Typography>
+                <Typography
+                  color="white"
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                    paddingBottom: '0.7rem',
+                  }}
+                >
+                  • Master's degree in Computer Science
+                </Typography>
+                <Typography
+                  color="white"
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                    paddingBottom: '0.7rem',
+                  }}
+                >
+                  • Fully Work Authorized
+                </Typography>
+                <Typography
+                  color="white"
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                    paddingBottom: '0.7rem',
+                  }}
+                >
+                  • No Visa Sponsorship Required
+                </Typography>
+              </ContentColumn>
+            </Grid>
+            <Grid item xs={12} sm={12} md={5}>
+              <ContentColumn>
+                <Typography variant="h6" style={BoldText} gutterBottom>
+                  Contact Me
+                </Typography>
                 <ContactWrapper>
-                  <FaHome size={20} style={IconStyle} />
+                  <FaHome
+                    size={20}
+                    style={IconStyle}
+                    aria-label="Home address"
+                  />
                   <Box>
                     <Typography variant="h6" style={BoldText} display="inline">
                       Location:
@@ -73,6 +142,7 @@ const Footer = () => {
                       sx={{
                         fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
                       }}
+                      color="white"
                     >
                       San Francisco Bay Area, California
                     </Typography>
@@ -81,40 +151,15 @@ const Footer = () => {
                       sx={{
                         fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
                       }}
+                      color="white"
                     >
                       United States
                     </Typography>
                   </Box>
                 </ContactWrapper>
+
                 <ContactWrapper>
-                  <FaPhone size={20} style={IconStyle} />
-                  <Box>
-                    <Link
-                      href="tel:+19259995013"
-                      color="inherit"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      <Typography
-                        variant="h6"
-                        style={BoldText}
-                        display="inline-block"
-                      >
-                        Phone:
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        display="inline-block"
-                        sx={{
-                          fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
-                        }}
-                      >
-                        +1 (925) 999-5013
-                      </Typography>
-                    </Link>
-                  </Box>
-                </ContactWrapper>
-                <ContactWrapper>
-                  <FaMailBulk size={20} style={IconStyle} />
+                  <FaMailBulk size={20} style={IconStyle} aria-label="Mail" />
                   <Box>
                     <Link
                       href="mailto:alona.vladymyrova@gmail.com"
@@ -125,6 +170,7 @@ const Footer = () => {
                         variant="h6"
                         style={BoldText}
                         display="inline-block"
+                        color="white"
                       >
                         Email:
                       </Typography>
@@ -134,34 +180,52 @@ const Footer = () => {
                         sx={{
                           fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
                         }}
+                        color="white"
                       >
                         alona.vladymyrova@gmail.com
                       </Typography>
                     </Link>
                   </Box>
                 </ContactWrapper>
+                <ContactWrapper>
+                  <FaPhone size={20} style={IconStyle} aria-label="Phone" />
+                  <Box>
+                    <Link
+                      href="tel:+19259995013"
+                      color="inherit"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <Typography
+                        variant="h6"
+                        style={BoldText}
+                        display="inline-block"
+                        color="white"
+                      >
+                        Phone:
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        display="inline-block"
+                        sx={{
+                          fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
+                        }}
+                        color="white"
+                      >
+                        +1 (925) 999-5013
+                      </Typography>
+                    </Link>
+                  </Box>
+                </ContactWrapper>
               </ContentColumn>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={12} md={2}>
               <ContentColumn>
-                <Typography variant="h6" style={BoldText}>
-                  About Me
-                </Typography>
                 <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
-                  }}
+                  variant="h6"
+                  style={BoldText}
+                  // gutterBottom
                 >
-                  Front-end developer • Master's in Computer Science
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1rem' },
-                  }}
-                >
-                  Fully Work Authorized • No Visa Sponsorship Required
+                  Follow Me
                 </Typography>
                 <Social>
                   <Link
@@ -171,7 +235,6 @@ const Footer = () => {
                     aria-label="GitHub Profile"
                   >
                     <FaGithub size={40} style={IconStyle} />
-                    <span className="sr-only">GitHub</span>
                   </Link>
                   <Link
                     href="https://www.linkedin.com/in/alona-vladymyrova"
@@ -180,7 +243,6 @@ const Footer = () => {
                     aria-label="LinkedIn Profile"
                   >
                     <FaLinkedin size={40} style={IconStyle} />
-                    <span className="sr-only">LinkedIn</span>
                   </Link>
                   <Link
                     href="https://www.codewars.com/users/AlonaVladymyrova"
@@ -192,27 +254,26 @@ const Footer = () => {
                       icon="simple-icons:codewars"
                       style={CodewarsIconStyle}
                     />
-                    <span className="sr-only">Codewars</span>
                   </Link>
                 </Social>
               </ContentColumn>
             </Grid>
           </Grid>
+          <Typography
+            variant="body1"
+            color="white"
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              margin: '0 1rem 1rem 0',
+            }}
+          >
+            &copy; {new Date().getFullYear()} All rights reserved
+          </Typography>
         </Container>
-      </FooterContainer>
-      <Typography
-        variant="body1"
-        color="inherit"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'flex-end',
-          margin: '0 1rem 1rem 0',
-        }}
-      >
-        &copy; {new Date().getFullYear()} All rights reserved
-      </Typography>
-    </AppBar>
+      </Box>
+    </>
   );
 };
 
