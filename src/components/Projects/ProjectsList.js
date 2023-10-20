@@ -20,7 +20,7 @@ const ProjectsList = [
     builtWith:
       'React, React Router, Redux, Axios, React Auth Context, HTML5, CSS3, Material-ui, JavaScript, APIs, Stripe, Node.js, Express, JWT, MongoDB, socket.io, bcrypt, Swagger UI, Nodemailer, Jest',
     view: 'https://beatbazaar.alona.dev',
-    source: 'https://github.com/AlonaVladymyrovaTrinity/',
+    source: 'https://github.com/AlonaVladymyrovaTrinity/BeatBazaarApp-Front',
   },
   {
     imgsrc: TodoApp,
