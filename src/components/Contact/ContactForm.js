@@ -7,7 +7,6 @@ import {
   Grid,
   Typography,
   Box,
-  //Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
@@ -24,9 +23,6 @@ const FormContainer = styled(Container)({
 const StyledTextField = styled(TextField)({
   marginBottom: '1rem',
   width: '100%',
-  // fontWeight: '50',
-  // fontSize: '2rem',
-  // fontFamily: 'Roboto , Helvetica , Arial , sans-serif',
 });
 
 const SubmitButton = styled(Button)({
@@ -73,7 +69,7 @@ const ContactForm = () => {
     message: '',
   });
 
-  const [snackbarOpen, setSnackbarOpen] = useState(false); //SnackbarClos
+  const [snackbarOpen, setSnackbarOpen] = useState(false); //SnackbarClose
   const [snackbarMessage, setSnackbarMessage] = useState(''); //Message
   const [snackbarSeverity, setSnackbarSeverity] = useState('success'); //Status
   const [errors, setErrors] = useState({});
@@ -137,9 +133,6 @@ const ContactForm = () => {
 
   return (
     <FormContainer>
-      {/* <Typography variant="h4" component="h2">
-        Contact Us
-      </Typography> */}
       <Grid
         container
         justifyContent="center"
@@ -149,7 +142,7 @@ const ContactForm = () => {
       >
         <Box style={{ margin: '1rem 0' }}>
           <Typography
-            /*variant="body2" color="text.secondary"*/ sx={{
+            sx={{
               margin: '0.5rem',
               color: '#000000',
               fontSize: '1rem',
@@ -160,7 +153,6 @@ const ContactForm = () => {
             engage in a conversation, please don't hesitate to get in touch!
           </Typography>
         </Box>
-        {/* Form with elements */}
         <form ref={formRef} onSubmit={handleSubmit}>
           <StyledTextField
             label="Your name"
@@ -211,6 +203,7 @@ const ContactForm = () => {
             type="submit"
             variant="contained"
             color="primary"
+            aria-label="Send"
             endIcon={<SendIcon />}
           >
             Send

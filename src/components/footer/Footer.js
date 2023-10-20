@@ -14,32 +14,8 @@ import {
   Link,
   Box,
   CssBaseline,
-  /*Paper AppBa
-  TableFooter,r*/
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-// import BottomNavigation from '@mui/material/BottomNavigation';
-// import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-
-// const FooterContainer = styled('footer')({
-//   padding: '3rem 0 0.7rem 0',
-//   color: '#ffffff',
-//   position: 'relative',
-//   bottom: '0',
-//   width: '100%',
-//   left: '0',
-//   // position: 'sticky',
-//   // bottom: '0',
-//   // minHeight: '30vh',
-// });
-
-// const FooterContainer = styled('footer')({
-//   backgroundColor: '#000', //(theme) => theme.palette.primary.main,
-//   color: '#fff',
-//   display: 'flex',
-//   flexDirection: 'column',
-//   // minHeight: '30rem',
-// });
 
 const ContentColumn = styled('div')({
   padding: '1rem',
@@ -67,8 +43,8 @@ const IconStyle = {
 
 const BoldText = {
   fontWeight: 'bold',
-  // marginRight: '0.4rem',
   color: '#ffffff',
+  marginRight: '0.625rem',
 };
 
 const CodewarsIconStyle = {
@@ -81,25 +57,6 @@ const CodewarsIconStyle = {
 
 const Footer = () => {
   return (
-    // <AppBar position="static" color="primary">
-    // <Box
-    //   sx={{
-    //     backgroundColor: (theme) => theme.palette.primary.main,
-    //     p: '1rem 0',
-    //   }}
-    //   component="footer"
-    // >
-    // <TableFooter
-    //   sx={{
-    //     backgroundColor: (theme) => theme.palette.primary.main,
-    //   }}
-    //   style={{ width: '100%' }}
-    // >
-    // <FooterContainer
-    //   sx={{
-    //     backgroundColor: (theme) => theme.palette.primary.main,
-    //   }}
-    // >
     <>
       <CssBaseline />
 
@@ -115,7 +72,6 @@ const Footer = () => {
         }}
         component="footer"
       >
-        {/* <FooterContainer> */}
         <Container maxWidth="xl">
           <Grid container spacing={{ xs: '0', sm: '0', md: 2 }}>
             <Grid item xs={12} sm={12} md={5}>
@@ -171,7 +127,11 @@ const Footer = () => {
                   Contact Me
                 </Typography>
                 <ContactWrapper>
-                  <FaHome size={20} style={IconStyle} />
+                  <FaHome
+                    size={20}
+                    style={IconStyle}
+                    aria-label="Home address"
+                  />
                   <Box>
                     <Typography variant="h6" style={BoldText} display="inline">
                       Location:
@@ -199,7 +159,7 @@ const Footer = () => {
                 </ContactWrapper>
 
                 <ContactWrapper>
-                  <FaMailBulk size={20} style={IconStyle} />
+                  <FaMailBulk size={20} style={IconStyle} aria-label="Mail" />
                   <Box>
                     <Link
                       href="mailto:alona.vladymyrova@gmail.com"
@@ -228,7 +188,7 @@ const Footer = () => {
                   </Box>
                 </ContactWrapper>
                 <ContactWrapper>
-                  <FaPhone size={20} style={IconStyle} />
+                  <FaPhone size={20} style={IconStyle} aria-label="Phone" />
                   <Box>
                     <Link
                       href="tel:+19259995013"
@@ -268,17 +228,6 @@ const Footer = () => {
                   Follow Me
                 </Typography>
                 <Social>
-                  {/* <Link
-                  href="https://github.com/AlonaVladymyrovaTrinity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                >
-                  <BottomNavigationAction
-                    label="Recents"
-                    icon={<FaGithub size={40} style={IconStyle} />}
-                  />
-                </Link> */}
                   <Link
                     href="https://github.com/AlonaVladymyrovaTrinity"
                     target="_blank"
@@ -286,7 +235,6 @@ const Footer = () => {
                     aria-label="GitHub Profile"
                   >
                     <FaGithub size={40} style={IconStyle} />
-                    <span className="sr-only">GitHub</span>
                   </Link>
                   <Link
                     href="https://www.linkedin.com/in/alona-vladymyrova"
@@ -295,7 +243,6 @@ const Footer = () => {
                     aria-label="LinkedIn Profile"
                   >
                     <FaLinkedin size={40} style={IconStyle} />
-                    <span className="sr-only">LinkedIn</span>
                   </Link>
                   <Link
                     href="https://www.codewars.com/users/AlonaVladymyrova"
@@ -307,7 +254,6 @@ const Footer = () => {
                       icon="simple-icons:codewars"
                       style={CodewarsIconStyle}
                     />
-                    <span className="sr-only">Codewars</span>
                   </Link>
                 </Social>
               </ContentColumn>
@@ -328,10 +274,6 @@ const Footer = () => {
         </Container>
       </Box>
     </>
-    // {/* </FooterContainer> */}
-    // </TableFooter>
-    // {/* </Box> */}
-    // </AppBar>
   );
 };
 

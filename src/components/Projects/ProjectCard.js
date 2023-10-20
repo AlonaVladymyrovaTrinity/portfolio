@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 const CustomButton = styled(Button)(({ theme }) => ({
-  backgroundImage: theme.palette.custome.main.backgroundImage,
-  color: theme.palette.custome.main.color,
+  backgroundImage: theme.palette.custom.main.backgroundImage,
+  color: theme.palette.custom.main.color,
   transition: 'background-color 0.5s',
   '&:hover': {
     opacity: '0.7',
@@ -24,7 +24,6 @@ const ProjectCard = (props) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        // boxShadow: 15,
         padding: '10 px',
         alignItems: 'center',
         height: '100%',

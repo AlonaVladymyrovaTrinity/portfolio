@@ -1,40 +1,16 @@
-import React, { /*useState,*/ useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Hero.css';
 import { Gradient } from 'whatamesh';
 import Waves from './Waves';
 import { useColorContext } from '../../../context/ColorContext';
 
 function Hero({ title, caption }) {
-  // const [gradientColors, setGradientColors] = useState({
-  //   colorZero: '#a960ee',
-  //   colorOne: '#ff333d',
-  //   colorTwo: '#90e0ff',
-  //   colorThree: '#ffcb57',
-  // });
   const { gradientColors } = useColorContext();
 
   useEffect(() => {
     const gradient = new Gradient();
     gradient.initGradient('#gradient-canvas');
   }, [gradientColors]);
-
-  // const handleColorChange = () => {
-  //   setTooltipOpen(false);
-  //   // Generate random colors
-  //   const newColors = {
-  //     colorZero: getRandomColor(),
-  //     colorOne: getRandomColor(),
-  //     colorTwo: getRandomColor(),
-  //     colorThree: getRandomColor(),
-  //   };
-
-  //   setGradientColors(newColors);
-  // };
-
-  // const getRandomColor = () => {
-  //   // Generate a random color in hexadecimal format
-  //   return '#' + Math.floor(Math.random() * 16777215).toString(16);
-  // };
 
   return (
     <>

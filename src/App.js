@@ -24,29 +24,3 @@ function App() {
 }
 
 export default App;
-
-// import React from 'react';
-// import { Canvas } from '@react-three/fiber';
-// import Avatar from './components/Home/Avatar';
-// import { OrbitControls } from '@react-three/drei';
-
-// function App() {
-//   return (
-
-// <Canvas>
-//   <ambientLight intensity={0.5} />
-//   <pointLight position={[10, 10, 10]} />
-//   <Avatar />
-// </Canvas>
-
-//     <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
-//       <color attach="background" args={['#ececec']} />
-//       <OrbitControls />
-//       <group position-y={-1}>
-//         <Avatar />
-//       </group>
-//       <ambientLight intensity={1} />
-//     </Canvas>
-//   );
-// }
-// export default App;

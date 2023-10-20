@@ -3,9 +3,6 @@ import { styled } from '@mui/material/styles';
 import bgImage from '../../assets/AlonaDev.png';
 import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton';
 import { Grid, Typography, Box } from '@mui/material';
-// import { Canvas } from '@react-three/fiber';
-// import { Avarat } from './Avatar';
-// import { OrbitControls } from '@react-three/drei';
 
 const StyledContainer = styled(Box)({
   width: '100%',
@@ -16,7 +13,6 @@ const LeftContent = styled(Box)({
   color: '#000000',
 });
 const RightContent = styled(Box)({
-  // overflow: 'hidden',
   padding: '0 8%',
 });
 const Article = styled(Box)({
@@ -36,8 +32,8 @@ const HomePageImg = styled('img')({
 });
 
 const CustomButton = styled(NavigateButton)(({ theme }) => ({
-  backgroundImage: theme.palette.custome.main.backgroundImage,
-  color: theme.palette.custome.main.color,
+  backgroundImage: theme.palette.custom.main.backgroundImage,
+  color: theme.palette.custom.main.color,
   transition: 'background-color 0.5s',
   '&:hover': {
     opacity: '0.7',
@@ -56,9 +52,8 @@ const HomePage = () => {
             <main>
               <Article>
                 <Typography
-                  /*variant="h6"*/ sx={{
+                  sx={{
                     margin: '0.5rem',
-                    // fontSize: '1rem',
                   }}
                 >
                   Welcome to my web portfolio, an insight into my journey as a
@@ -99,15 +94,6 @@ const HomePage = () => {
           <RightContent>
             <Grid container spacing={2} style={{ margin: '1rem 0' }}>
               <HomePageImg src={bgImage} alt="Front-end developer" />
-              {/* <Canvas shadows camera={{ position: [3, 3, 3], fov: 30 }}>
-                <color attach="background" args={['#ececec']} />
-                <OrbitControls /> */}
-              {/* <Avarat /> */}
-              {/* <mesh>
-                  <boxGeometry />
-                  <meshNormalMaterial />
-                </mesh>
-              </Canvas> */}
             </Grid>
           </RightContent>
         </Grid>

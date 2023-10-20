@@ -31,45 +31,49 @@ const NavbarDrawer = () => {
       <Drawer
         open={openDrawer}
         onClose={() => {
-          //   toggleDrawer(anchor, true);
           setOpenDrawer(false);
         }}
       >
         <List style={{ margin: '0 3rem' }}>
+          {/* Home */}
           <ListItemButton key={0} onClick={() => setOpenDrawer(false)}>
-            <HomeIcon style={iconStyle} />
+            <HomeIcon style={iconStyle} aria-label="Home" />
             <ListItemText>
               <Link to="/" style={linkStyle}>
                 Home
               </Link>
             </ListItemText>
           </ListItemButton>
+          {/* Projects */}
           <ListItemButton key={1} onClick={() => setOpenDrawer(false)}>
-            <BusinessCenterIcon style={iconStyle} />
+            <BusinessCenterIcon style={iconStyle} aria-label="Projects" />
             <ListItemText>
               <Link to="/project" style={linkStyle}>
                 Projects
               </Link>
             </ListItemText>
           </ListItemButton>
+          {/* About */}
           <ListItemButton key={2} onClick={() => setOpenDrawer(false)}>
-            <BadgeIcon style={iconStyle} />
+            <BadgeIcon style={iconStyle} aria-label="About" />
             <ListItemText>
               <Link to="/about" style={linkStyle}>
                 About
               </Link>
             </ListItemText>
           </ListItemButton>
+          {/* Contact */}
           <ListItemButton key={3} onClick={() => setOpenDrawer(false)}>
-            <EmailIcon style={iconStyle} />
+            <EmailIcon style={iconStyle} aria-label="Contact" />
             <ListItemText>
               <Link to="/contact" style={linkStyle}>
                 Contact
               </Link>
             </ListItemText>
           </ListItemButton>
+          {/* Resume (PDF) */}
           <ListItemButton key={4} onClick={() => setOpenDrawer(false)}>
-            <PictureAsPdfIcon style={iconStyle} />
+            <PictureAsPdfIcon style={iconStyle} aria-label="Resume" />
             <ListItemText>
               <Link
                 style={linkStyle}
@@ -90,7 +94,6 @@ const NavbarDrawer = () => {
       >
         <MenuIcon />
       </IconButton>
-      {/* <IconButton onClick={toggleDrawer(anchor, true)}></IconButton> */}
     </>
   );
 };

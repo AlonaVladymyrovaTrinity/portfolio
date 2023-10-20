@@ -14,8 +14,8 @@ import GithubIcon from '../../assets/github_icon.png';
 import SqlIcon from '../../assets/sql_icon.png';
 
 const CustomButton = styled(NavigateButton)(({ theme }) => ({
-  backgroundImage: theme.palette.custome.main.backgroundImage,
-  color: theme.palette.custome.main.color,
+  backgroundImage: theme.palette.custom.main.backgroundImage,
+  color: theme.palette.custom.main.color,
   transition: 'background-color 0.5s',
   '&:hover': {
     opacity: '0.7',
@@ -179,12 +179,15 @@ const AboutPage = () => {
                   <SkillBoxContainer>
                     <SkillTitle>
                       <Img>
-                        <SkillIcon src={skill.icon} alt={skill.label} />
+                        <SkillIcon
+                          src={skill.icon}
+                          alt={skill.label}
+                          aria-label={skill.label}
+                        />
                       </Img>
                       <Typography
                         sx={{
                           margin: '0.5rem',
-                          // fontSize: '1rem',
                         }}
                       >
                         {skill.label}

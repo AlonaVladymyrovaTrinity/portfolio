@@ -5,7 +5,7 @@ import Hero from '../components/ReusableComponents/Hero/Hero';
 const Home = () => {
   return (
     <>
-      <Hero title="Front-end" caption=" Web developer portfolio" />
+      <Hero title="Portfolio" caption="Front-end Web Developer" />
       <HomePage />
     </>
   );
