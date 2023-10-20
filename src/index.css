@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&family=Audiowide&family=Black+Han+Sans&family=Rowdies:wght@300&family=Russo+One&display=swap');
 * {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; */
   /* font-size: 1.2rem; */
 }
-body {
+/* body {
   background: #ffffff;
-}
+} */
 
 /*The CSS class "sr-only" is used to hide element visually from
 sighted users while still making them accessible to assistive

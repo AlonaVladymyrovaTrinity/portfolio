@@ -5,6 +5,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+
+const CustomButton = styled(Button)(({ theme }) => ({
+  backgroundImage: theme.palette.custome.main.backgroundImage,
+  color: theme.palette.custome.main.color,
+  transition: 'background-color 0.5s',
+  '&:hover': {
+    opacity: '0.7',
+  },
+}));
 const ProjectCard = (props) => {
   return (
     <Card
@@ -51,24 +61,23 @@ const ProjectCard = (props) => {
         }}
       >
         <Button
-          href={props.view}
+          href={props.source}
           target="_blank"
           rel="noreferrer"
           variant="contained"
           color="primary"
-          /*size="small"*/
         >
-          View Project
+          View Source
         </Button>
-        <Button
-          href={props.source}
+        <CustomButton
+          href={props.view}
           target="_blank"
           rel="noreferrer"
           variant="contained"
           color="secondary"
         >
-          View Source
-        </Button>
+          View Project
+        </CustomButton>
       </CardActions>
     </Card>
   );

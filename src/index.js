@@ -8,15 +8,22 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 // Set up a default colour pallete / theme for our whole app using material-ui ThemeProvider context component
 const defaultTheme = createTheme({
   palette: {
-    primary: { main: '#313866' }, // Change "main" to set the primary color
-    secondary: { main: '#974EC3' }, // Change "main" to set the secondary color
+    primary: { main: '#070840' }, // Change "main" to set the primary color
+    secondary: { main: '#7324fb' }, // Change "main" to set the secondary color
+    custome: {
+      main: {
+        backgroundImage:
+          'linear-gradient(to right, #c81ee8, #896dff, #3a93ff, #00aeff, #42c1f9)',
+        color: 'white', // Text color
+      },
+    },
     mode: 'light',
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '1.25rem', // Set the desired border radius here
+          borderRadius: '1.25rem', // Border radius here
         },
       },
     },

@@ -1,47 +1,118 @@
-import style from './HomePage.module.css';
 import React from 'react';
-import bgImage from '../../assets/girl-coding.jpg';
+import { styled } from '@mui/material/styles';
+import bgImage from '../../assets/AlonaDev.png';
 import NavigateButton from '../ReusableComponents/NavigateButton/NavigateButton';
+import { Grid, Typography, Box } from '@mui/material';
+// import { Canvas } from '@react-three/fiber';
+// import { Avarat } from './Avatar';
+// import { OrbitControls } from '@react-three/drei';
+
+const StyledContainer = styled(Box)({
+  width: '100%',
+  padding: '2rem 0',
+});
+const LeftContent = styled(Box)({
+  padding: '0 8%',
+  color: '#000000',
+});
+const RightContent = styled(Box)({
+  // overflow: 'hidden',
+  padding: '0 8%',
+});
+const Article = styled(Box)({
+  textAlign: 'justify',
+  margin: '2rem 0',
+});
+const ButtonContainer = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '0.625rem',
+});
+
+const HomePageImg = styled('img')({
+  width: '100%',
+  height: 'auto',
+});
+
+const CustomButton = styled(NavigateButton)(({ theme }) => ({
+  backgroundImage: theme.palette.custome.main.backgroundImage,
+  color: theme.palette.custome.main.color,
+  transition: 'background-color 0.5s',
+  '&:hover': {
+    opacity: '0.7',
+  },
+}));
 
 const HomePage = () => {
   return (
-    <>
-      <div className={style['home-container']}>
-        <div className={style['mask']}>
-          <img
-            className={style['bg-img']}
-            src={bgImage}
-            alt="Front-end developer"
-          />
-        </div>
-        <div className={style['content']}>
-          <p>Hello, I am Alona Vladymyrova</p>
-          <h1>Front-end</h1>
-          <h2>developer</h2>
-          <div className={style['button-container']}>
-            <div mt="2rem">
-              <NavigateButton
-                linkName={'/project'}
-                variant={'contained'}
-                color={'primary'}
-                children={'PROJECTS'}
-                fullWidth
-              />
-            </div>
-            <div mt="2rem">
-              <NavigateButton
-                linkName={'/contact'}
-                variant={'contained'}
-                color={'secondary'}
-                children={'Hire me'}
-                fullWidth
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <StyledContainer>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6}>
+          <LeftContent>
+            <Typography variant="h5" style={{ fontWeight: 400 }}>
+              Hey! I'm Alona
+            </Typography>
+            <main>
+              <Article>
+                <Typography
+                  /*variant="h6"*/ sx={{
+                    margin: '0.5rem',
+                    // fontSize: '1rem',
+                  }}
+                >
+                  Welcome to my web portfolio, an insight into my journey as a
+                  Front-end Developer. Here, I invite you to explore my skills
+                  and expertise in web development technologies. <br /> <br />{' '}
+                  With a passion for creating engaging web experiences and a
+                  dedication to design and functionality, my projects showcase
+                  my commitment to user-friendly web solutions.
+                  <br /> <br /> From responsive design to interactive
+                  interfaces, my work spans modern web development, reflecting
+                  my passion for innovation and technology.
+                </Typography>
+              </Article>
+            </main>
+            <ButtonContainer>
+              <Box mt="2rem">
+                <NavigateButton
+                  linkName={'/project'}
+                  variant={'contained'}
+                  color={'primary'}
+                  children={'PROJECTS'}
+                  fullWidth
+                />
+              </Box>
+              <Box mt="2rem">
+                <CustomButton
+                  linkName={'/contact'}
+                  variant={'contained'}
+                  color={'secondary'}
+                  children={'Hire me'}
+                  fullWidth
+                />
+              </Box>
+            </ButtonContainer>
+          </LeftContent>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RightContent>
+            <Grid container spacing={2} style={{ margin: '1rem 0' }}>
+              <HomePageImg src={bgImage} alt="Front-end developer" />
+              {/* <Canvas shadows camera={{ position: [3, 3, 3], fov: 30 }}>
+                <color attach="background" args={['#ececec']} />
+                <OrbitControls /> */}
+              {/* <Avarat /> */}
+              {/* <mesh>
+                  <boxGeometry />
+                  <meshNormalMaterial />
+                </mesh>
+              </Canvas> */}
+            </Grid>
+          </RightContent>
+        </Grid>
+      </Grid>
+    </StyledContainer>
   );
 };
-
 export default HomePage;

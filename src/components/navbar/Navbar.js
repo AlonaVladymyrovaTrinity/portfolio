@@ -8,6 +8,7 @@ import {
   Button,
   useMediaQuery,
   useTheme,
+  Box,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -41,6 +42,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 const CustomIconButton = styled(IconButton)(({ theme }) => ({
   color: 'white',
+  marginRight: '1rem',
   backgroundColor: 'hsla(0, 0%, 100%, 0.3)',
   transition: 'background-color 0.5s',
   '&:hover': {
@@ -157,6 +159,19 @@ const Navbar = () => {
     }
   }, [location.pathname]);
 
+  const CustomLogoLink = styled(Typography)({
+    textTransform: 'uppercase',
+    textShadow: '0 0 2px #000',
+    fontFamily:
+      'Audiowide, Russo One, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
+    fontWeight: '400',
+    color: '#fff',
+    textDecoration: 'none',
+    '&:hover': {
+      textShadow: '3px 3px 20px #ff99cc, -2px 1px 30px #ff99cc',
+    },
+  });
+
   return (
     <>
       <AppBar
@@ -165,43 +180,22 @@ const Navbar = () => {
         style={transparentNavbarStyle}
       >
         <Toolbar>
-          <Typography
-            variant="h7"
-            component="div"
-            sx={{ flexGrow: 1 }}
-            style={{
-              textTransform: 'uppercase',
-              textShadow: '0 0 2px #000',
-              fontFamily:
-                'Audiowide, Russo One, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
-              fontWeight: '400',
-            }}
+          <Tooltip
+            title="Change Colors"
+            // enterDelay={1000}
+            arrow
+            open={tooltipOpen}
           >
-            Alona
-          </Typography>
-          {isMatch ? (
-            <>
-              <Typography>Menu</Typography>
-              <NavbarDrawer />
-            </>
-          ) : (
-            <>
-              <Tooltip
-                title="Change Colors"
-                // enterDelay={1000}
-                arrow
-                open={tooltipOpen}
-              >
-                <CustomIconButton
-                  onClick={handleColorChange}
-                  aria-label="Change Colors" // ARIA label for accessibility
-                  onMouseEnter={() => {
-                    setTimeout(() => setTooltipOpen(true), 800); // Delay on mouse enter for Tooltip show
-                  }}
-                  onMouseLeave={() => setTooltipOpen(false)}
-                  //title="Change Colors" // title attribute
-                >
-                  {/* <img
+            <CustomIconButton
+              onClick={handleColorChange}
+              aria-label="Change Colors" // ARIA label for accessibility
+              onMouseEnter={() => {
+                setTimeout(() => setTooltipOpen(true), 800); // Delay on mouse enter for Tooltip show
+              }}
+              onMouseLeave={() => setTooltipOpen(false)}
+              //title="Change Colors" // title attribute
+            >
+              {/* <img
                     style={{
                       width: '1rem',
                       height: '1rem',
@@ -209,9 +203,37 @@ const Navbar = () => {
                     src={iconImg} // Path to icon
                     alt="Change Colors Icon" // Alt text for accessibility
                   /> */}
-                  <PaletteIcon fontSize="small" sx={{ color: '#fff' }} />
-                </CustomIconButton>
-              </Tooltip>
+              <PaletteIcon fontSize="small" sx={{ color: '#fff' }} />
+            </CustomIconButton>
+          </Tooltip>
+          <Box sx={{ flexGrow: 1 }}>
+            <CustomLogoLink
+              variant="h7"
+              // component="div"
+              label="Home"
+              component={Link}
+              to="/"
+              // style={{
+              //   textTransform: 'uppercase',
+              //   textShadow: '0 0 2px #000',
+              //   fontFamily:
+              //     'Audiowide, Russo One, Black Han Sans, Rowdies, ADLaM Display, Archivo Black, Roboto, Helvetica, Arial, sans-serif',
+              //   fontWeight: '400',
+              //   color: '#fff',
+              //   textDecoration: 'none',
+              //   '&:hover': { color: '#000' },
+              // }}
+            >
+              Alona
+            </CustomLogoLink>
+          </Box>
+          {isMatch ? (
+            <>
+              <Typography>Menu</Typography>
+              <NavbarDrawer />
+            </>
+          ) : (
+            <>
               <StyledTabs
                 textColor="inherit"
                 value={value}
