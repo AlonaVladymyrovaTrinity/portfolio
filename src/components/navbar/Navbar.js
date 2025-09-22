@@ -15,7 +15,7 @@ import { styled } from '@mui/material/styles';
 import { Link, useLocation } from 'react-router-dom';
 import NavbarDrawer from './NavbarDrawer';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import myResume from '../../assets/Resume_Alona_Vladymyrova 03_09_24.pdf';
+import myResume from '../../assets/Resume_Alona_Vladymyrova_09_09_2025.pdf';
 import { useColorContext } from '../../context/ColorContext';
 import PaletteIcon from '@mui/icons-material/Palette';
 import IconButton from '@mui/material/IconButton';
