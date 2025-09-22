@@ -12,7 +12,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import BadgeIcon from '@mui/icons-material/Badge';
 import EmailIcon from '@mui/icons-material/Email';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import myResume from '../../assets/Resume_Alona_Vladymyrova_07_19_23.pdf';
+import myResume from '../../assets/Resume_Alona_Vladymyrova_09_09_2025.pdf';
 import { Link } from 'react-router-dom';
 
 const NavbarDrawer = () => {
